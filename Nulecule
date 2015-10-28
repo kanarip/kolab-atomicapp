@@ -13,7 +13,7 @@
         },
         {
             "name": "kolab-roundcubemail",
-            "source": "docker://kolab/roundcubemail"
+            "source": "docker://kolab/webclient"
         },
         {
             "name": "kolab-freebusy",
@@ -21,7 +21,31 @@
         },
         {
             "name": "kolab-ldap",
-            "source": "docker://kolab/ldap"
+            "source": "docker://kolab/freeipa"
+        },
+        {
+            "name": "kolab-imap-proxy",
+            "source": "docker://kolab/imap-proxy"
+        },
+        {
+            "name": "kolab-imap-frontend",
+            "source": "docker://kolab/imap-frontend"
+        },
+        {
+            "name": "kolab-imap-backend",
+            "source": "docker://kolab/imap-backend"
+        },
+        {
+            "name": "kolab-http-proxy",
+            "source": "docker://kolab/http-proxy"
+        },
+        {
+            "name": "kolab-ext-mx-out",
+            "source": "docker://kolab/ext-mx-out"
+        },
+        {
+            "name": "kolab-int-mx",
+            "source": "docker://kolab/int-mx"
         }
     ]
 }
