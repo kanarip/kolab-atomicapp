@@ -1,0 +1,29 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab",
+    "metadata": {
+        "name": "Kolab Groupware",
+        "appversion": 14.0,
+        "description": "Kolab Groupware"
+    },
+    "graph": [
+        {
+            "name": "mariadb-atomicapp",
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+        },
+        {
+            "name": "httpd",
+            "params: [
+                {
+                    "name": "image",
+                    "description": "The webserver image",
+                    "default": "centos/httpd"
+                },
+                {
+                    "name": "hostport",
+                    "description: "The host ports",
+                    "default": [ 80, 443 ]
+                }
+        }
+    }
+}
