@@ -24,6 +24,7 @@
                     "description: "The host ports",
                     "default": [ 80, 443 ]
                 }
+            ]
         }
-    }
+    ]
 }
