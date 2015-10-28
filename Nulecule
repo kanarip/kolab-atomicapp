@@ -21,7 +21,7 @@
                 },
                 {
                     "name": "hostport",
-                    "description: "The host ports",
+                    "description": "The host ports",
                     "default": [ 80, 443 ]
                 }
             ]
