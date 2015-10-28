@@ -12,19 +12,16 @@
             "source": "docker://projectatomic/mariadb-centos7-atomicapp"
         },
         {
-            "name": "httpd",
-            "params": [
-                {
-                    "name": "image",
-                    "description": "The webserver image",
-                    "default": "centos/httpd"
-                },
-                {
-                    "name": "hostport",
-                    "description": "The host ports",
-                    "default": [ 80, 443 ]
-                }
-            ]
+            "name": "kolab-roundcubemail",
+            "source": "docker://kolab/roundcubemail"
+        },
+        {
+            "name": "kolab-freebusy",
+            "source": "docker://kolab/freebusy"
+        },
+        {
+            "name": "kolab-ldap",
+            "source": "docker://kolab/ldap"
         }
     ]
 }
