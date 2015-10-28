@@ -13,7 +13,7 @@
         },
         {
             "name": "httpd",
-            "params: [
+            "params": [
                 {
                     "name": "image",
                     "description": "The webserver image",
