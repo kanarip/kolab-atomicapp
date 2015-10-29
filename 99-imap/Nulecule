@@ -1,13 +1,13 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-imapf-int",
+    "id": "kolab-imap",
     "metadata": {
         "name": "Kolab Internal IMAP Frontend",
         "appversion": "2.5.6",
         "description": "Used for internal IMAP connections"
     },
     "graph": {
-        "name": "kolab-imapf-int",
+        "name": "kolab-imap",
         "params": [
             {
                 "name": "cyrus_admin_password",
@@ -24,7 +24,7 @@
                 "file://artifacts/kubernetes/controller.json"
             ],
             "docker": [
-                "file://artifacts/docker/kolab-imapf-int-pod_run"
+                "file://artifacts/docker/kolab-imap-pod_run"
             ]
         }
     }
