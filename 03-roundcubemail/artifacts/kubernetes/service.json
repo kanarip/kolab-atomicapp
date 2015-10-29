@@ -17,7 +17,7 @@
                 "port": 443,
                 "targetPort": "https-roundcubemail-server"
             }
-        ]
+        ],
         "selector": {
             "name": "kolab-roundcubemail"
         },

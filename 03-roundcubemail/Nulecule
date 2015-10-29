@@ -27,7 +27,7 @@
         },
         {
             "name": "mariadb-centos7-atomicapp",
-            "source': "docker://projectatomic/mariadb-centos7-atomic-app"
+            "source": "docker://projectatomic/mariadb-centos7-atomic-app"
         }
     ]
 }
