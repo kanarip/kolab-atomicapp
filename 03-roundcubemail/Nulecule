@@ -6,22 +6,28 @@
         "appversion": "14.0",
         "description": "Web Client Interface"
     },
-    "graph": {
-        "name": "kolab-roundcubemail",
-        "params": [
-            {
-                "name": "kolab_service_password",
-                "description": "Kolab Service Password"
-            }
-        ],
-        "artifacts": {
-            "kubernetes": [
-                "file://artifacts/kubernetes/service.json",
-                "file://artifacts/kubernetes/controller.json"
+    "graph": [
+        {
+            "name": "kolab-roundcubemail",
+            "params": [
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
             ],
-            "docker": [
-                "file://artifacts/docker/kolab-roundcubemail-pod_run"
-            ]
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/kolab-roundcubemail-pod_run"
+                ]
+            }
+        },
+        {
+            "name": "mariadb-centos7-atomicapp",
+            "source': "docker://projectatomic/mariadb-centos7-atomic-app"
         }
-    }
+    ]
 }

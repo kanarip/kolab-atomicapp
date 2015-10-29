@@ -8,48 +8,12 @@
     },
     "graph": [
         {
-            "name": "mariadb-atomicapp",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
-        },
-        {
             "name": "kolab-roundcubemail",
             "source": "docker://kolab/roundcubemail"
         },
         {
-            "name": "kolab-freebusy",
-            "source": "docker://kolab/freebusy"
-        },
-        {
-            "name": "kolab-ldap",
-            "source": "docker://kolab/freeipa"
-        },
-        {
-            "name": "kolab-imap-proxy",
-            "source": "docker://kolab/imap-proxy"
-        },
-        {
             "name": "kolab-imap-frontend-int",
             "source": "docker://kolab/imapf-int"
-        },
-        {
-            "name": "kolab-imap-backend",
-            "source": "docker://kolab/imap-backend"
-        },
-        {
-            "name": "kolab-http-proxy",
-            "source": "docker://kolab/http-proxy"
-        },
-        {
-            "name": "kolab-ext-mx-out",
-            "source": "docker://kolab/ext-mx-out"
-        },
-        {
-            "name": "kolab-int-mx",
-            "source": "docker://kolab/int-mx"
-        },
-        {
-            "name": "kolab-wallace",
-            "source": "docker://kolab/wallace"
         }
     ]
 }
