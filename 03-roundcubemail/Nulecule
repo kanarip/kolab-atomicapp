@@ -26,8 +26,8 @@
             }
         },
         {
-            "name": "mariadb-centos7-atomicapp",
-            "source": "docker://projectatomic/mariadb-centos7-atomic-app"
+            "name": "kolab-roundcubemail-database",
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
         }
     ]
 }
