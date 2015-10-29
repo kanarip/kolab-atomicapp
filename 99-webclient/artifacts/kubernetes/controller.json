@@ -22,14 +22,14 @@
                 "containers": [
                     {
                         "name": "kolab-webclient",
-                        "image": "$image",
+                        "image": "kolab/webclient",
                         "ports": [
                             {
-                                "name": "http-webclient-server",
+                                "name": "http",
                                 "containerPort": 80
                             },
                             {
-                                "name": "https-webclient-server",
+                                "name": "https",
                                 "containerPort": 443
                             }
                         ]
