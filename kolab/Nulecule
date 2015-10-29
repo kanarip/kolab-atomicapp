@@ -13,7 +13,7 @@
         },
         {
             "name": "kolab-roundcubemail",
-            "source": "docker://kolab/webclient"
+            "source": "docker://kolab/roundcubemail"
         },
         {
             "name": "kolab-freebusy",

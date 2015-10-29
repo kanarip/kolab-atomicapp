@@ -1,0 +1,41 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-roundcubemail",
+        "labels": {
+            "name": "kolab-roundcubemail"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "name": "kolab-roundcubemail",
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-roundcubemail"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-roundcubemail",
+                        "image": "$image",
+                        "ports": [
+                            {
+                                "name": "http-roundcubemail-server",
+                                "containerPort": 80
+                            },
+                            {
+                                "name": "https-roundcubemail-server",
+                                "containerPort": 443
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

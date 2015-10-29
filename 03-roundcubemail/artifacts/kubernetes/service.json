@@ -1,0 +1,26 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-roundcubemail",
+        "labels": {
+            "name": "kolab-roundcubemail"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 80,
+                "targetPort": "http-roundcubemail-server"
+            },
+            {
+                "port": 443,
+                "targetPort": "https-roundcubemail-server"
+            }
+        ]
+        "selector": {
+            "name": "kolab-roundcubemail"
+        },
+        "type": "LoadBalancer"
+    }
+}
