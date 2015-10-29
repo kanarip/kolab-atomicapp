@@ -2,26 +2,26 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-imapf-int",
+        "name": "kolab-mta",
         "labels": {
-            "name": "kolab-imapf-int"
+            "name": "kolab-mta"
         }
     },
     "spec": {
         "replicas": 3,
         "selector": {
-            "name": "kolab-imapf-int"
+            "name": "kolab-mta"
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-imapf-int"
+                    "name": "kolab-mta"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-imapf-int",
+                        "name": "kolab-mta",
                         "image": "$image",
                         "ports": [
                             {
