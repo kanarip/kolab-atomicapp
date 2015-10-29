@@ -10,12 +10,14 @@
     "spec": {
         "ports": [
             {
+                "name": "smtp",
                 "port": 25,
-                "targetPort": "smtp-server"
+                "targetPort": 25
             },
             {
+                "name": "submission",
                 "port": 587,
-                "targetPort": "submission-server"
+                "targetPort": 587
             }
         ],
         "selector": {

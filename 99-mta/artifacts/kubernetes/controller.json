@@ -22,27 +22,15 @@
                 "containers": [
                     {
                         "name": "kolab-mta",
-                        "image": "$image",
+                        "image": "kolab/mta",
                         "ports": [
                             {
-                                "name": "pop-server",
-                                "containerPort": 110
+                                "name": "smtp",
+                                "containerPort": 25
                             },
                             {
-                                "name": "imap-server",
-                                "containerPort": 143
-                            },
-                            {
-                                "name": "imaps-server",
-                                "containerPort": 993
-                            },
-                            {
-                                "name": "pops-server",
-                                "containerPort": 995
-                            },
-                            {
-                                "name": "managesieve-server",
-                                "containerPort": 4190
+                                "name": "submission",
+                                "containerPort": 587
                             }
                         ]
                     }
