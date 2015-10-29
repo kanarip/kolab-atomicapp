@@ -22,7 +22,7 @@
                 "containers": [
                     {
                         "name": "kolab-imap",
-                        "image": "kolab/imap",
+                        "image": "$image",
                         "ports": [
                             {
                                 "name": "pop",
