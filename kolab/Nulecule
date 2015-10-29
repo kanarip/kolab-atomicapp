@@ -28,8 +28,8 @@
             "source": "docker://kolab/imap-proxy"
         },
         {
-            "name": "kolab-imap-frontend",
-            "source": "docker://kolab/imap-frontend"
+            "name": "kolab-imap-frontend-int",
+            "source": "docker://kolab/imapf-int"
         },
         {
             "name": "kolab-imap-backend",
@@ -46,6 +46,10 @@
         {
             "name": "kolab-int-mx",
             "source": "docker://kolab/int-mx"
+        },
+        {
+            "name": "kolab-wallace",
+            "source": "docker://kolab/wallace"
         }
     ]
 }

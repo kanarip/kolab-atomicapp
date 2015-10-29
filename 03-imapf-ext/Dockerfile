@@ -1,0 +1,4 @@
+FROM kolab/base-imap
+
+EXPOSE 110 143 993 995 4190
+
