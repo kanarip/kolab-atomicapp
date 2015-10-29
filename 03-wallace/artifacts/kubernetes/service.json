@@ -1,0 +1,21 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-wallace",
+        "labels": {
+            "name": "kolab-wallace"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 10026,
+                "targetPort": "smtp-wallace-server"
+            }
+        ],
+        "selector": {
+            "name": "kolab-wallace"
+        },
+        "type": "LoadBalancer"
+    }

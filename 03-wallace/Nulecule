@@ -1,0 +1,31 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-wallace",
+    "metadata": {
+        "name": "Kolab Content-Filter",
+        "appversion": "0.7.16",
+        "description": "Kolab Content-Filter"
+    },
+    "graph": {
+        "name": "kolab-wallace",
+        "params": [
+            {
+                "name": "cyrus_admin_password",
+                "description": "Cyrus Administrator Password"
+            },
+            {
+                "name": "kolab_service_password",
+                "description": "Kolab Service Password"
+            }
+        ],
+        "artifacts": {
+            "kubernetes": [
+                "file://artifacts/kubernetes/service.json",
+                "file://artifacts/kubernetes/controller.json"
+            ],
+            "docker": [
+                "file://artifacts/docker/kolab-wallace-pod_run"
+            ]
+        }
+    }
+}

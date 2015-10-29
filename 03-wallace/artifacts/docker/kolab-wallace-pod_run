@@ -1,0 +1,1 @@
+docker run -d -p 10026:10026 -e CYRUS_ADMIN_PASSWORD=$cyrus_admin_password -e KOLAB_SERVICE_PASSWORD=$kolab_service_password kolab/wallace
