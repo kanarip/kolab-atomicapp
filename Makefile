@@ -16,21 +16,20 @@ all:
 	docker build -t kolab/atomicapp kolab/.
 
 push:
-	docker push \
-		kolab/base \
-		kolab/base-imap \
-		kolab/base-mx \
-		kolab/base-web \
-		kolab/base-ext-mx \
-		kolab/imapb \
-		kolab/imapf-ext \
-		kolab/imapf-int \
-		kolab/imap-prx \
-		kolab/roundcubemail \
-		kolab/wallace \
-		kolab/imap \
-		kolab/mta \
-		kolab/webclient \
-		kolab/atomicapp
+	docker push kolab/base
+	docker push kolab/base-imap
+	docker push kolab/base-mx
+	docker push kolab/base-web
+	docker push kolab/base-ext-mx
+	docker push kolab/imapb
+	docker push kolab/imapf-ext
+	docker push kolab/imapf-int
+	docker push kolab/imap-prx
+	docker push kolab/roundcubemail
+	docker push kolab/wallace
+	docker push kolab/imap
+	docker push kolab/mta
+	docker push kolab/webclient
+	docker push kolab/atomicapp
 
-.PHONY: all
+.PHONY: all push
