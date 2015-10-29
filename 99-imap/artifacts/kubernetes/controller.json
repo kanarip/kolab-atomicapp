@@ -42,7 +42,7 @@
                             {
                                 "name": "managesieve-server",
                                 "containerPort": 4190
-                            },
+                            }
                         ]
                     }
                 ]
