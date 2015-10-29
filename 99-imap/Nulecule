@@ -6,26 +6,28 @@
         "appversion": "2.5.6",
         "description": "Used for internal IMAP connections"
     },
-    "graph": {
-        "name": "kolab-imap",
-        "params": [
-            {
-                "name": "cyrus_admin_password",
-                "description": "Cyrus Administrator Password"
-            },
-            {
-                "name": "kolab_service_password",
-                "description": "Kolab Service Password"
-            }
-        ],
-        "artifacts": {
-            "kubernetes": [
-                "file://artifacts/kubernetes/service.json",
-                "file://artifacts/kubernetes/controller.json"
+    "graph": [
+        {
+            "name": "kolab-imap",
+            "params": [
+                {
+                    "name": "cyrus_admin_password",
+                    "description": "Cyrus Administrator Password"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
             ],
-            "docker": [
-                "file://artifacts/docker/kolab-imap-pod_run"
-            ]
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/kolab-imap-pod_run"
+                ]
+            }
         }
-    }
+    ]
 }
