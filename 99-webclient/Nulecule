@@ -1,0 +1,34 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-webclient",
+    "metadata": {
+        "name": "Kolab Web Client Interface",
+        "appversion": "14.0",
+        "description": "Web Client Interface"
+    },
+    "graph": [
+        {
+            "name": "kolab-webclient",
+            "params": [
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/kolab-webclient-pod_run"
+                ]
+            }
+        },
+        {
+            "name": "mariadb-centos7-atomicapp",
+            "source": "docker://projectatomic/mariadb-centos7-atomic-app"
+        }
+    ]
+}
+

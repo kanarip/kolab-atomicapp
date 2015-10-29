@@ -1,0 +1,41 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-webclient",
+        "labels": {
+            "name": "kolab-webclient"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "name": "kolab-webclient",
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-webclient"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-webclient",
+                        "image": "$image",
+                        "ports": [
+                            {
+                                "name": "http-webclient-server",
+                                "containerPort": 80
+                            },
+                            {
+                                "name": "https-webclient-server",
+                                "containerPort": 443
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,26 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-webclient",
+        "labels": {
+            "name": "kolab-webclient"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 80,
+                "targetPort": "http-webclient-server"
+            },
+            {
+                "port": 443,
+                "targetPort": "https-webclient-server"
+            }
+        ],
+        "selector": {
+            "name": "kolab-webclient"
+        },
+        "type": "LoadBalancer"
+    }
+}

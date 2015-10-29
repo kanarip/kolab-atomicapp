@@ -8,12 +8,16 @@
     },
     "graph": [
         {
-            "name": "kolab-roundcubemail",
-            "source": "docker://kolab/roundcubemail"
+            "name": "kolab-imap",
+            "source": "docker://kolab/imap"
         },
         {
-            "name": "kolab-imap-frontend-int",
-            "source": "docker://kolab/imapf-int"
+            "name": "kolab-mta",
+            "source": "docker://kolab/mta"
+        },
+        {
+            "name": "kolab-webclient",
+            "source": "docker://kolab/webclient"
         }
     ]
 }

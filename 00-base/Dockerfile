@@ -8,10 +8,17 @@ LABEL io.projectatomic.nulecule.providers="kubernetes" \
 ADD http://obs.kolabsys.com/repositories/Kolab:/Development/CentOS_7/Kolab:Development.repo \
     /etc/yum.repos.d/Kolab:Development.repo
 
+ADD dbus.service /etc/systemd/system/dbus.service
+RUN ln -sf dbus.service /etc/systemd/system/messagebus.service
+
+ADD systemctl /usr/bin/systemctl
+ADD systemctl-socket-daemon /usr/bin/systemctl-socket-daemon
+
 RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         echo "priority=60" >> /etc/yum.repos.d/Kolab:Development.repo && \
         yum -y install epel-release && \
         yum -y install yum-plugin-priorities && \
+        yum -y install perl-Data-Dumper && \
         yum clean all && \
         yum -y update && \
         yum clean all

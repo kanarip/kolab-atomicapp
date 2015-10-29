@@ -1,0 +1,31 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-imapf-int",
+    "metadata": {
+        "name": "Kolab Internal IMAP Frontend",
+        "appversion": "2.5.6",
+        "description": "Used for internal IMAP connections"
+    },
+    "graph": {
+        "name": "kolab-imapf-int",
+        "params": [
+            {
+                "name": "cyrus_admin_password",
+                "description": "Cyrus Administrator Password"
+            },
+            {
+                "name": "kolab_service_password",
+                "description": "Kolab Service Password"
+            }
+        ],
+        "artifacts": {
+            "kubernetes": [
+                "file://artifacts/kubernetes/service.json",
+                "file://artifacts/kubernetes/controller.json"
+            ],
+            "docker": [
+                "file://artifacts/docker/kolab-imapf-int-pod_run"
+            ]
+        }
+    }
+}

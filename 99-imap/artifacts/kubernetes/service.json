@@ -1,0 +1,37 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-imap",
+        "labels": {
+            "name": "kolab-imap"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 110,
+                "targetPort": "pop-server"
+            },
+            {
+                "port": 143,
+                "targetPort": "imap-server"
+            },
+            {
+                "port": 993,
+                "targetPort": "imaps-server"
+            },
+            {
+                "port": 995,
+                "targetPort": "pops-server"
+            },
+            {
+                "port": 4190,
+                "targetPort": "managesieve-server"
+            }
+        ],
+        "selector": {
+            "name": "kolab-imap"
+        },
+        "type": "LoadBalancer"
+    }

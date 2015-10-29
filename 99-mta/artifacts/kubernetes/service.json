@@ -1,0 +1,25 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-mta",
+        "labels": {
+            "name": "kolab-mta"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 25,
+                "targetPort": "smtp-server"
+            },
+            {
+                "port": 587,
+                "targetPort": "submission-server"
+            }
+        ],
+        "selector": {
+            "name": "kolab-mta"
+        },
+        "type": "LoadBalancer"
+    }

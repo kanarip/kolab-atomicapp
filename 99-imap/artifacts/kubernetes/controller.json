@@ -1,0 +1,53 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-imap",
+        "labels": {
+            "name": "kolab-imap"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "name": "kolab-imap"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-imap"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-imap",
+                        "image": "$image",
+                        "ports": [
+                            {
+                                "name": "pop-server",
+                                "containerPort": 110
+                            },
+                            {
+                                "name": "imap-server",
+                                "containerPort": 143
+                            },
+                            {
+                                "name": "imaps-server",
+                                "containerPort": 993
+                            },
+                            {
+                                "name": "pops-server",
+                                "containerPort": 995
+                            },
+                            {
+                                "name": "managesieve-server",
+                                "containerPort": 4190
+                            },
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
