@@ -9,7 +9,7 @@ ADD httpd.service /etc/systemd/system/httpd.service
 
 EXPOSE 80 443
 
-ADD entrypoint /entrypoint.sh
+ADD entrypoint.sh /entrypoint.sh
 
 ENTRYPOINT [ "/entrypoint.sh" ]
 
