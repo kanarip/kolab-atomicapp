@@ -30,4 +30,13 @@
             }
         }
     ]
+    "requirements": [
+        {
+            "persistentVolume": {
+                "name": "srv-imap",
+                "accessMode": "ReadWrite",
+                "size": 4
+            }
+        }
+    ]
 }
