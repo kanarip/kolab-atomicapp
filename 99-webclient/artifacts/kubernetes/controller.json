@@ -10,7 +10,7 @@
     "spec": {
         "replicas": 3,
         "selector": {
-            "name": "kolab-webclient",
+            "name": "kolab-webclient"
         },
         "template": {
             "metadata": {
