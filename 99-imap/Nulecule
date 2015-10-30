@@ -2,9 +2,9 @@
     "specversion": "0.0.2",
     "id": "kolab-imap",
     "metadata": {
-        "name": "Kolab Internal IMAP Frontend",
+        "name": "Kolab IMAP Services",
         "appversion": "2.5.6",
-        "description": "Used for internal IMAP connections"
+        "description": "Kolab IMAP Services"
     },
     "graph": [
         {
@@ -29,11 +29,11 @@
                 ]
             }
         }
-    ]
+    ],
     "requirements": [
         {
             "persistentVolume": {
-                "name": "srv-imap",
+                "name": "kolab-imap-data",
                 "accessMode": "ReadWrite",
                 "size": 4
             }

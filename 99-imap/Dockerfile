@@ -7,7 +7,7 @@ RUN yum -y install \
 ADD /Nulecule /Dockerfile /application-entity/
 ADD /artifacts /application-entity/artifacts/
 
-VOLUME [ "/var/lib/imap", "/var/spool/imap" ]
+VOLUME [ "/data" ]
 
 ADD entrypoint.sh /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
