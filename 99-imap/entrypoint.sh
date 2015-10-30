@@ -2,7 +2,9 @@
 
 # Do something actual here.
 if [ ! -f "/etc/imapd.conf" ]; then
-    setup-kolab --default imap
+    setup-kolab --default imap || exit 1
+    # Shut it down again, because we run this as CMD, in the foreground.
+    systemctl stop cyrus-imapd
 fi
 
 persist=(
@@ -16,7 +18,7 @@ for p in ${persist[@]}; do
     if [ -d "${p}" ]; then
         mkdir -p /data$(dirname ${p})
         mv ${p} /data$(dirname ${p})
-        ln -s /data${p} ${p}
+        ln -s /data${p} $(dirname ${p})
     fi
 done
 
