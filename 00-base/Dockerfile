@@ -8,6 +8,8 @@ LABEL io.projectatomic.nulecule.providers="kubernetes" \
 ADD http://obs.kolabsys.com/repositories/Kolab:/Development/CentOS_7/Kolab:Development.repo \
     /etc/yum.repos.d/Kolab:Development.repo
 
+RUN sed -i -r -e 's|https://dl.fedoraproject.org/pub/epel|http://mirror.switch.ch/ftp/mirror/epel|g' /etc/yum.repos.d/epel*.repo
+
 ADD dbus.service /etc/systemd/system/dbus.service
 RUN ln -sf dbus.service /etc/systemd/system/messagebus.service
 

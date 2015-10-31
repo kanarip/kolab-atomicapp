@@ -43,6 +43,12 @@ for (my $i = 0; $i < @ARGV; $i++) {
 if (@ARGV == 1 and $ARGV[0] eq 'daemon-reload') {
 	exit 0;
 }
+if (@ARGV == 1 and $ARGV[0] eq 'preset') {
+    exit 0;
+}
+if (@ARGV == 1 and $ARGV[0] eq 'try-restart') {
+    exit 0;
+}
 if (@ARGV == 2 and $ARGV[0] eq '--system' and $ARGV[1] eq 'daemon-reload') {
 	exit 0;
 }
