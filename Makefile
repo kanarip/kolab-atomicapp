@@ -32,4 +32,15 @@ push:
 	docker push kolab/webclient
 	docker push kolab/atomicapp
 
+clean:
+	for container in $$(docker ps -q); do \
+		docker kill --signal="SIGKILL" $$container ; \
+	done
+	for container in $$(docker ps -aq); do \
+		docker rm $$container ; \
+	done
+	for image in $$(docker images -q --filter dangling=true); do \
+		docker rmi $$image ; \
+	done
+
 .PHONY: all push
