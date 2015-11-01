@@ -11,6 +11,11 @@
             "name": "kolab-roundcubemail",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/roundcubemail"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password"
                 }

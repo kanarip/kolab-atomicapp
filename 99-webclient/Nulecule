@@ -11,6 +11,11 @@
             "name": "kolab-webclient",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/webclient"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password"
                 }

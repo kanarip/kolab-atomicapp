@@ -8,7 +8,22 @@ LABEL io.projectatomic.nulecule.providers="kubernetes" \
 ADD http://obs.kolabsys.com/repositories/Kolab:/Development/CentOS_7/Kolab:Development.repo \
     /etc/yum.repos.d/Kolab:Development.repo
 
-RUN sed -i -r -e 's|https://dl.fedoraproject.org/pub/epel|http://mirror.switch.ch/ftp/mirror/epel|g' /etc/yum.repos.d/epel*.repo
+# Disable the nodocs flag.
+RUN sed -i -e '/tsflags=nodocs/d' /etc/yum.conf
+
+# We have no use for fastestmirror
+RUN sed -r -i -e 's/enabled\s*=\s*1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf
+
+# Ensure documentation for base packages is indeed installed, and we have the necessary utilities available.
+RUN yum -y reinstall \* && \
+    yum -y install \
+        lsof \
+        man \
+        net-tools \
+        strace
+
+# Workaround (possibly) dl.fedoraproject.org being unavailable.
+# RUN sed -i -r -e 's|https://dl.fedoraproject.org/pub/epel|http://mirror.switch.ch/ftp/mirror/epel|g' /etc/yum.repos.d/epel*.repo
 
 ADD dbus.service /etc/systemd/system/dbus.service
 RUN ln -sf dbus.service /etc/systemd/system/messagebus.service

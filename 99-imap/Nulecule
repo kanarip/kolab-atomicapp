@@ -11,6 +11,11 @@
             "name": "kolab-imap",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/imap"
+                },
+                {
                     "name": "cyrus_admin_password",
                     "description": "Cyrus Administrator Password"
                 },

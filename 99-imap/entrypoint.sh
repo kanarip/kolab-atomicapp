@@ -26,3 +26,5 @@ systemctl start kolab-saslauthd
 
 # Apply some configuration
 exec "$@"
+
+exec top

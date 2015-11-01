@@ -38,5 +38,14 @@
                 ]
             }
         }
+    ],
+    "requirements": [
+        {
+            "persistentVolume": {
+                "name": "kolab-ldap-data",
+                "accessMode": "ReadWrite",
+                "size": 4
+            }
+        }
     ]
 }

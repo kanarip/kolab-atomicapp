@@ -6,3 +6,5 @@ setup-kolab --default roundcube
 
 # Apply some configuration
 exec "$@"
+
+exec top

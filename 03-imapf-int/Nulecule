@@ -11,6 +11,11 @@
             "name": "kolab-imapf-int",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/imapf-int"
+                },
+                {
                     "name": "cyrus_admin_password",
                     "description": "Cyrus Administrator Password"
                 },

@@ -11,6 +11,11 @@
             "name": "kolab-mta",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/mta"
+                },
+                {
                     "name": "cyrus_admin_password",
                     "description": "Cyrus Administrator Password"
                 },
@@ -27,6 +32,15 @@
                 "docker": [
                     "file://artifacts/docker/run-kolab-mta"
                 ]
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "persistentVolume": {
+                "name": "kolab-mta-data",
+                "accessMode": "ReadWrite",
+                "size": 4
             }
         }
     ]

@@ -2,3 +2,5 @@
 
 # Apply some configuration
 exec "$@"
+
+exec top

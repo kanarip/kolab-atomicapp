@@ -11,6 +11,11 @@
             "name": "kolab-wallace",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/wallace"
+                },
+                {
                     "name": "cyrus_admin_password",
                     "description": "Cyrus Administrator Password"
                 },
@@ -27,6 +32,15 @@
                 "docker": [
                     "file://artifacts/docker/run-kolab-wallace"
                 ]
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "persistentVolume": {
+                "name": "kolab-wallace-data",
+                "accessMode": "ReadWrite",
+                "size": 4
             }
         }
     ]

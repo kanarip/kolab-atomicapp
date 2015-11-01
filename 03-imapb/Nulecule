@@ -11,6 +11,11 @@
             "name": "kolab-imapb",
             "params": [
                 {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/imapb"
+                },
+                {
                     "name": "cyrus_admin_password",
                     "description": "Cyrus Administrator Password"
                 },
@@ -27,6 +32,15 @@
                 "docker": [
                     "file://artifacts/docker/run-kolab-imapb"
                 ]
+            }
+        }
+    ],
+    "requirements": [
+        {
+            "persistentVolume": {
+                "name": "kolab-imapb-data",
+                "accessMode": "ReadWrite",
+                "size": 4
             }
         }
     ]
