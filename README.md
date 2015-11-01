@@ -1,4 +1,4 @@
-# Kolab Groupware as an Atomic Application
+# Kolab as an Atomic Application
 
 This repository contains the development of
 [Kolab Groupware](https://kolab.org) as an
