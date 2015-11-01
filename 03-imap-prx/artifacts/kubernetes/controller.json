@@ -1,0 +1,53 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-imap-prx",
+        "labels": {
+            "name": "kolab-imap-prx"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "kolab-imap-prx"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-imap-prx"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-imap-prx",
+                        "image": "kolab/imap-prx",
+                        "ports": [
+                            {
+                                "name": "pop",
+                                "containerPort": 110
+                            },
+                            {
+                                "name": "imap",
+                                "containerPort": 143
+                            },
+                            {
+                                "name": "imaps",
+                                "containerPort": 993
+                            },
+                            {
+                                "name": "pops",
+                                "containerPort": 995
+                            },
+                            {
+                                "name": "managesieve",
+                                "containerPort": 4190
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

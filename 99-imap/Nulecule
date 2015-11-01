@@ -25,7 +25,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/kolab-imap-pod_run"
+                    "file://artifacts/docker/run-kolab-imap"
                 ]
             }
         }

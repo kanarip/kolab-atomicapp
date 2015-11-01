@@ -8,8 +8,28 @@
     },
     "graph": [
         {
-            "name": "kolab-imap",
-            "source": "docker://kolab/imap"
+            "name": "kolab-imap-prx",
+            "source": "docker://kolab/imap-prx"
+        },
+        {
+            "name": "kolab-imapf-ext",
+            "source": "docker://kolab/imapf-ext"
+        },
+        {
+            "name": "kolab-imapf-int",
+            "source": "docker://kolab/imapf-int"
+        },
+        {
+            "name": "kolab-imapb",
+            "source": "docker://kolab/imapb"
+        },
+        {
+            "name": "kolab-ldap-master",
+            "source": "docker://kolab/ldap-master"
+        },
+        {
+            "name": "kolab-ldap-slave",
+            "source": "docker://kolab/ldap-slave"
         },
         {
             "name": "kolab-mta",

@@ -1,0 +1,42 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-ldap",
+    "metadata": {
+        "name": "Kolab LDAP",
+        "appversion": "1.2.11.15",
+        "description": "Kolab LDAP"
+    },
+    "graph": [
+        {
+            "name": "kolab-ldap",
+            "params": [
+                {
+                    "name": "admin_password",
+                    "description": "Administrator Password"
+                },
+                {
+                    "name": "directory_manager_password",
+                    "description": "Directory Manager Password"
+                },
+                {
+                    "name": "ldap_root_dn",
+                    "description": "Root DN to use.",
+                    "default": "dc=kolab"
+                },
+                {
+                    "name": "image",
+                    "description": "Image to use to fulfill the LDAP master role",
+                    "default": "kolab/ldap"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                ],
+                "docker": [
+                    "file://artifacts/docker/run-kolab-ldap"
+                ]
+            }
+        }
+    ]
+}

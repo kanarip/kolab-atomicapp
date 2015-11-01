@@ -21,7 +21,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/kolab-roundcubemail-pod_run"
+                    "file://artifacts/docker/run-kolab-roundcubemail"
                 ]
             }
         },

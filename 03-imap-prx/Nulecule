@@ -1,6 +1,6 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-imapb",
+    "id": "kolab-imap-prx",
     "metadata": {
         "name": "Kolab IMAP Backend",
         "appversion": "2.5.6",
@@ -8,7 +8,7 @@
     },
     "graph": [
         {
-            "name": "kolab-imapb",
+            "name": "kolab-imap-prx",
             "params": [
                 {
                     "name": "cyrus_admin_password",
@@ -25,7 +25,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-imapb"
+                    "file://artifacts/docker/run-kolab-imap-prx"
                 ]
             }
         }
