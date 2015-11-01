@@ -13,13 +13,13 @@ deployment on Kubernetes-based environments, such as
 Run the Kolab Atomic Application in the Atomic Developer Bundle Vagrant
 image.
 
-  $ vagrant up
-  $ vagrant ssh
-  $ atomic install kolab/atomicapp
+    $ vagrant up
+    $ vagrant ssh
+    $ atomic install kolab/atomicapp
 
 Edit `./answers.conf.sample` and save off as `./answers.conf`.
 
-  $ atomic run kolab/atomicapp
+    $ atomic run kolab/atomicapp
 
 ## Limitations
 
