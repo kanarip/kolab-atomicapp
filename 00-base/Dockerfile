@@ -17,7 +17,7 @@ RUN sed -r -i -e 's/enabled\s*=\s*1/enabled=0/g' /etc/yum/pluginconf.d/fastestmi
 # Workaround (possibly) dl.fedoraproject.org being unavailable.
 RUN sed -i -r \
     -e 's|https://dl.fedoraproject.org/pub/epel|http://mirror.switch.ch/ftp/mirror/epel|g' \
-    -e '|^mirrorlist|d' \
+    -e 's|^mirrorlist|#mirrorlist|g' \
     /etc/yum.repos.d/epel*.repo
 
 # Ensure documentation for base packages is indeed installed, and we have the necessary utilities available.
