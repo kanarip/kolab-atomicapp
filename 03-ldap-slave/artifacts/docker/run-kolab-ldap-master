@@ -1,0 +1,9 @@
+docker run -d \
+    -p 389:389 \
+    -p 636:636 \
+    -p 9830:9830 \
+    -h $hostname \
+    -e ADMIN_PASSWORD=$admin_password \
+    -e DIRECTORY_MANAGER_PASSWORD=$directory_manager_password \
+    -e ROOT_DN=$root_dn \
+    $image
