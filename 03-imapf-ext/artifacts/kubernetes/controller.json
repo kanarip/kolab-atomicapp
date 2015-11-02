@@ -1,0 +1,53 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-imapf-ext",
+        "labels": {
+            "name": "kolab-imapf-ext"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "kolab-imapf-ext"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-imapf-ext"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-imapf-ext",
+                        "image": "$image",
+                        "ports": [
+                            {
+                                "name": "pop-server",
+                                "containerPort": 110
+                            },
+                            {
+                                "name": "imap-server",
+                                "containerPort": 143
+                            },
+                            {
+                                "name": "imaps-server",
+                                "containerPort": 993
+                            },
+                            {
+                                "name": "pops-server",
+                                "containerPort": 995
+                            },
+                            {
+                                "name": "managesieve-server",
+                                "containerPort": 4190
+                            },
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
