@@ -1,4 +1,4 @@
-FROM kolab/base:latest
+FROM kolab/base-imap:latest
 
 RUN yum -y install \
     kolab-imap && \
@@ -10,7 +10,3 @@ ADD /artifacts /application-entity/artifacts/
 VOLUME [ "/data" ]
 
 ADD entrypoint.sh /entrypoint.sh
-ENTRYPOINT [ "/entrypoint.sh" ]
-
-CMD [ "/usr/lib/cyrus-imapd/cyrus-master", "-D" ]
-
