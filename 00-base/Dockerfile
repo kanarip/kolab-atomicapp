@@ -14,16 +14,20 @@ RUN sed -i -e '/tsflags=nodocs/d' /etc/yum.conf
 # We have no use for fastestmirror
 RUN sed -r -i -e 's/enabled\s*=\s*1/enabled=0/g' /etc/yum/pluginconf.d/fastestmirror.conf
 
+# Workaround (possibly) dl.fedoraproject.org being unavailable.
+RUN sed -i -r \
+    -e 's|https://dl.fedoraproject.org/pub/epel|http://mirror.switch.ch/ftp/mirror/epel|g' \
+    -e '|^mirrorlist|d' \
+    /etc/yum.repos.d/epel*.repo
+
 # Ensure documentation for base packages is indeed installed, and we have the necessary utilities available.
-RUN yum -y reinstall \* && \
+RUN yum clean all && \
+    yum -y reinstall \* && \
     yum -y install \
         lsof \
         man \
         net-tools \
         strace
-
-# Workaround (possibly) dl.fedoraproject.org being unavailable.
-# RUN sed -i -r -e 's|https://dl.fedoraproject.org/pub/epel|http://mirror.switch.ch/ftp/mirror/epel|g' /etc/yum.repos.d/epel*.repo
 
 ADD dbus.service /etc/systemd/system/dbus.service
 RUN ln -sf dbus.service /etc/systemd/system/messagebus.service
