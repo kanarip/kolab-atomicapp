@@ -16,6 +16,14 @@
             "source": "docker://kolab/asav-out"
         },
         {
+            "name": "kolab-freebusy",
+            "source": "docker://kolab/freebusy"
+        },
+        {
+            "name": "kolab-http-prx",
+            "source": "docker://kolab/http-prx"
+        },
+        {
             "name": "kolab-imap-prx",
             "source": "docker://kolab/imap-prx"
         },
@@ -34,6 +42,10 @@
         {
             "name": "kolab-imapb",
             "source": "docker://kolab/imapb"
+        },
+        {
+            "name": "kolab-irony",
+            "source": "docker://kolab/irony"
         },
         {
             "name": "kolab-ldap-master",
@@ -56,12 +68,20 @@
             "source": "docker://kolab/int-mx"
         },
         {
+            "name": "kolab-roundcubemail",
+            "source": "docker://kolab/roundcubemail"
+        },
+        {
             "name": "kolab-submission",
             "source": "docker://kolab/submission"
         },
         {
-            "name": "kolab-webclient",
-            "source": "docker://kolab/webclient"
+            "name": "kolab-syncroton",
+            "source": "docker://kolab/syncroton"
+        },
+        {
+            "name": "kolab-webadmin",
+            "source": "docker://kolab/webadmin"
         }
     ]
 }
