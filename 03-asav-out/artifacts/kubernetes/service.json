@@ -1,0 +1,21 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-asav-out",
+        "labels": {
+            "name": "kolab-asav-out"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 10024,
+                "targetPort": 10024
+            }
+        ],
+        "selector": {
+            "name": "kolab-asav-out"
+        }
+    }
+}

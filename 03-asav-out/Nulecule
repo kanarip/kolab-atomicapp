@@ -1,6 +1,6 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-asav-in",
+    "id": "kolab-asav-out",
     "metadata": {
         "name": "Kolab Inbound Anti-Spam and Anti-Virus",
         "appversion": "development",
@@ -8,12 +8,12 @@
     },
     "graph": [
         {
-            "name": "kolab-asav-in",
+            "name": "kolab-asav-out",
             "params": [
                 {
                     "name": "image",
                     "description": "Image to use",
-                    "default": "kolab/asav-in"
+                    "default": "kolab/asav-out"
                 }
             ],
             "artifacts": {
