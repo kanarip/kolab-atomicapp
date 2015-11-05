@@ -1,0 +1,37 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-imap-mupdate",
+        "labels": {
+            "name": "kolab-imap-mupdate"
+        }
+    },
+    "spec": {
+        "replicas": 3,
+        "selector": {
+            "name": "kolab-imap-mupdate"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-imap-mupdate"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-imap-mupdate",
+                        "image": "$image",
+                        "ports": [
+                            {
+                                "name": "mupdate",
+                                "containerPort": 3905
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

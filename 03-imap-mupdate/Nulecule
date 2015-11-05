@@ -1,0 +1,33 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-imap-mupdate",
+    "metadata": {
+        "name": "Kolab Cyrus IMAP Mupdate server",
+        "appversion": "2.5.6",
+        "description": "Maintains mailbox information across the Cyrus IMAP Murder."
+    },
+    "graph": [
+        {
+            "name": "kolab-imap-mupdate",
+            "params": [
+                {
+                    "name": "cyrus_admin_password",
+                    "description": "Cyrus Administrator Password"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/kolab-imap-mupdate-pod_run"
+                ]
+            }
+        }
+    ]
+}

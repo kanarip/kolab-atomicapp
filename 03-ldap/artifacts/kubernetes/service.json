@@ -1,0 +1,22 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-ldap",
+        "labels": {
+            "name": "kolab-ldap"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "port": 389,
+                "targetPort": "ldap-server"
+            }
+        ],
+        "selector": {
+            "name": "kolab-ldap"
+        },
+        "type": "LoadBalancer"
+    }
+}

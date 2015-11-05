@@ -1,0 +1,1 @@
+docker run --name kolab-ldap -h ldap.kolab.docker -e DIRECTORY_MANAGER_PASSWORD=$directory_manager_password kolab/ldap
