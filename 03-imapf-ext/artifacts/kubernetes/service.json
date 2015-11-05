@@ -11,23 +11,23 @@
         "ports": [
             {
                 "port": 110,
-                "targetPort": "pop-server"
+                "targetPort": 110
             },
             {
                 "port": 143,
-                "targetPort": "imap-server"
+                "targetPort": 143
             },
             {
                 "port": 993,
-                "targetPort": "imaps-server"
+                "targetPort": 993
             },
             {
                 "port": 995,
-                "targetPort": "pops-server"
+                "targetPort": 995
             },
             {
                 "port": 4190,
-                "targetPort": "managesieve-server"
+                "targetPort": 4190
             }
         ],
         "selector": {
@@ -35,3 +35,4 @@
         },
         "type": "LoadBalancer"
     }
+}
