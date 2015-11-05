@@ -1,0 +1,3 @@
+.include /lib/systemd/system/clamd@.service
+[Install]
+WantedBy=multi-user.target

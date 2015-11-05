@@ -1,10 +1,13 @@
-all:
+all: docs
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
 		echo "== $$image ==" ; \
 		docker build \
 			-t kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g') \
 			$$image/. ; \
 	done
+
+docs:
+	make -C docs clean html
 
 pull:
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
@@ -37,4 +40,4 @@ really-clean:
 		docker rmi $$image 2>/dev/null || : ; \
 	done
 
-.PHONY: all push
+.PHONY: all docs push

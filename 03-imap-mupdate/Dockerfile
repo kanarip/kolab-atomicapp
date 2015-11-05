@@ -1,13 +1,7 @@
-FROM kolab/base:latest
-
-RUN yum -y install \
-    cyrus-imapd \
-    kolab-saslauthd
+FROM kolab/base-imap:latest
 
 ADD /Nulecule /Dockerfile /application-entity/
 ADD /artifacts /application-entity/artifacts/
-
-USER cyrus
 
 ADD entrypoint.sh /entrypoint.sh
 

@@ -10,8 +10,9 @@
     "spec": {
         "ports": [
             {
+                "name": "wallace",
                 "port": 10026,
-                "targetPort": "smtp-wallace-server"
+                "targetPort": 10026
             }
         ],
         "selector": {
@@ -19,3 +20,4 @@
         },
         "type": "LoadBalancer"
     }
+}

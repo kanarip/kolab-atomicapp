@@ -12,6 +12,10 @@
             "source": "docker://kolab/imap-prx"
         },
         {
+            "name": "kolab-imap-mupdate",
+            "source": "docker://kolab/imap-mupdate"
+        },
+        {
             "name": "kolab-imapf-ext",
             "source": "docker://kolab/imapf-ext"
         },
@@ -32,8 +36,20 @@
             "source": "docker://kolab/ldap-slave"
         },
         {
-            "name": "kolab-mta",
-            "source": "docker://kolab/mta"
+            "name": "kolab-ext-mx-in",
+            "source": "docker://kolab/ext-mx-in"
+        },
+        {
+            "name": "kolab-ext-mx-out",
+            "source": "docker://kolab/ext-mx-out"
+        },
+        {
+            "name": "kolab-int-mx",
+            "source": "docker://kolab/int-mx"
+        },
+        {
+            "name": "kolab-submission",
+            "source": "docker://kolab/submission"
         },
         {
             "name": "kolab-webclient",

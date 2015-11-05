@@ -2,9 +2,9 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-ldap",
+        "name": "kolab-ldap-master",
         "labels": {
-            "name": "kolab-ldap"
+            "name": "kolab-ldap-master"
         }
     },
     "spec": {
@@ -26,7 +26,7 @@
             }
         ],
         "selector": {
-            "name": "kolab-ldap"
+            "name": "kolab-ldap-master"
         }
     }
 }
