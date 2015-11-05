@@ -1,27 +1,19 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-mta",
+    "id": "kolab-ext-mx-out",
     "metadata": {
-        "name": "Kolab Internal IMAP Frontend",
-        "appversion": "2.5.6",
-        "description": "Used for internal IMAP connections"
+        "name": "kolab-ext-mx-out",
+        "appversion": "development",
+        "description": "External Mail Exchanger (Outbound)"
     },
     "graph": [
         {
-            "name": "kolab-mta",
+            "name": "kolab-ext-mx-out",
             "params": [
                 {
                     "name": "image",
                     "description": "Image to use",
-                    "default": "kolab/mta"
-                },
-                {
-                    "name": "cyrus_admin_password",
-                    "description": "Cyrus Administrator Password"
-                },
-                {
-                    "name": "kolab_service_password",
-                    "description": "Kolab Service Password"
+                    "default": "kolab/ext-mx-out"
                 }
             ],
             "artifacts": {
@@ -30,7 +22,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-mta"
+                    "file://artifacts/docker/run-kolab-ext-mx-out"
                 ]
             }
         }
@@ -38,7 +30,7 @@
     "requirements": [
         {
             "persistentVolume": {
-                "name": "kolab-mta-data",
+                "name": "kolab-ext-mx-out-data",
                 "accessMode": "ReadWrite",
                 "size": 4
             }

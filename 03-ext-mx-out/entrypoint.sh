@@ -5,9 +5,5 @@ if [ ! -d "/etc/postfix/ldap/" ]; then
     systemctl stop postfix
 fi
 
-systemctl start kolab-saslauthd
-
 # Apply some configuration
 exec "$@"
-
-exec top

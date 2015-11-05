@@ -2,27 +2,27 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-mta",
+        "name": "kolab-ext-mx-out",
         "labels": {
-            "name": "kolab-mta"
+            "name": "kolab-ext-mx-out"
         }
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-mta"
+            "name": "kolab-ext-mx-out"
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-mta"
+                    "name": "kolab-ext-mx-out"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-mta",
-                        "image": "kolab/mta",
+                        "name": "kolab-ext-mx-out",
+                        "image": "kolab/ext-mx-out",
                         "ports": [
                             {
                                 "name": "smtp",
@@ -30,7 +30,7 @@
                             },
                             {
                                 "name": "submission",
-                                "containerPort": 587
+                                "containerPort": 10025
                             }
                         ]
                     }
