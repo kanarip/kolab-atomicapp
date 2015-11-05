@@ -24,16 +24,12 @@ RUN sed -i -r \
 RUN yum clean all && \
     yum -y reinstall \* && \
     yum -y install \
+        bind-utils \
         lsof \
         man \
         net-tools \
-        strace
-
-ADD dbus.service /etc/systemd/system/dbus.service
-RUN ln -sf dbus.service /etc/systemd/system/messagebus.service
-
-ADD systemctl /usr/bin/systemctl
-ADD systemctl-socket-daemon /usr/bin/systemctl-socket-daemon
+        strace \
+        vim-enhanced
 
 RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         echo "priority=60" >> /etc/yum.repos.d/Kolab:Development.repo && \
@@ -43,3 +39,7 @@ RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         yum clean all && \
         yum -y update && \
         yum clean all
+
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
