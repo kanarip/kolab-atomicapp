@@ -7,4 +7,3 @@ RUN yum -y install \
     php-kolab \
     php-kolabformat \
     roundcubemail
-

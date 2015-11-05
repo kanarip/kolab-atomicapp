@@ -5,7 +5,9 @@ ADD /artifacts /application-entity/artifacts/
 
 VOLUME [ "/var/spool/postfix" ]
 
-ADD entrypoint.sh /entrypoint.sh
+EXPOSE 25 587
+
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
 
 CMD [ "/usr/libexec/postfix/master", "-D" ]
-

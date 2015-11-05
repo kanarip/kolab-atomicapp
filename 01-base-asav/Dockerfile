@@ -6,9 +6,8 @@ VOLUME [ "/var/spool/amavisd" ]
 
 EXPOSE 10024
 
-ADD entrypoint.sh /entrypoint.sh
-
-ENTRYPOINT [ "/entrypoint.sh" ]
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
 
 CMD [ \
         "/usr/sbin/amavisd", \

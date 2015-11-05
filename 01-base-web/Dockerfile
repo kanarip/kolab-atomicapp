@@ -5,7 +5,6 @@ RUN yum -y install \
     php \
     mod_ssl
 
-ENTRYPOINT [ "/usr/sbin/httpd" , "-DFOREGROUND" ]
-
 EXPOSE 80 443
 
+CMD [ "/usr/sbin/httpd" , "-DFOREGROUND" ]

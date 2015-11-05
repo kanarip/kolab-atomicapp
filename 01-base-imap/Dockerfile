@@ -6,5 +6,4 @@ RUN yum -y install \
 
 EXPOSE 110 143 993 995 4190
 
-ENTRYPOINT [ "/entrypoint.sh" ]
 CMD [ "/usr/lib/cyrus-imapd/cyrus-master", "-D" ]
