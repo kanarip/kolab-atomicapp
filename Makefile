@@ -2,8 +2,6 @@ all: docs
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
 		echo "== $$image ==" ; \
 		docker build \
-			--no-cache=true \
-			--rm=true \
 			-t kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g') \
 			$$image/. ; \
 	done
