@@ -1,0 +1,41 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-webadmin",
+        "labels": {
+            "name": "kolab-webadmin"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "kolab-webadmin",
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-webadmin"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-webadmin",
+                        "image": "$image",
+                        "ports": [
+                            {
+                                "name": "http",
+                                "containerPort": 80
+                            },
+                            {
+                                "name": "https",
+                                "containerPort": 443
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

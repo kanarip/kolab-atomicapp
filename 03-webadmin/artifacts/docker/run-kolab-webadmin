@@ -1,0 +1,5 @@
+docker run -d \
+    -p 80:80 \
+    -p 443:443 \
+    -e KOLAB_SERVICE_PASSWORD=$kolab_service_password \
+    $image

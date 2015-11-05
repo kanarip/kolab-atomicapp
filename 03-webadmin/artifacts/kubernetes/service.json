@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-webadmin",
+        "labels": {
+            "name": "kolab-webadmin"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "http",
+                "port": 80,
+                "targetPort": 80
+            },
+            {
+                "name": "https",
+                "port": 443,
+                "targetPort": 443
+            }
+        ],
+        "selector": {
+            "name": "kolab-webadmin"
+        },
+        "type": "LoadBalancer"
+    }
+}
