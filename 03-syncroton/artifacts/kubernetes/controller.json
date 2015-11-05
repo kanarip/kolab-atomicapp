@@ -2,26 +2,26 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-roundcubemail",
+        "name": "kolab-syncroton",
         "labels": {
-            "name": "kolab-roundcubemail"
+            "name": "kolab-syncroton"
         }
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-roundcubemail",
+            "name": "kolab-syncroton",
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-roundcubemail"
+                    "name": "kolab-syncroton"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-roundcubemail",
+                        "name": "kolab-syncroton",
                         "image": "$image",
                         "ports": [
                             {

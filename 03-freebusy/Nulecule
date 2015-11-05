@@ -1,0 +1,38 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-freebusy",
+    "metadata": {
+        "name": "Kolab Free/Busy Interface",
+        "appversion": "14.0",
+        "description": "Free/Busy Interface"
+    },
+    "graph": [
+        {
+            "name": "kolab-freebusy",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/freebusy"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/run-kolab-freebusy"
+                ]
+            }
+        },
+        {
+            "name": "kolab-freebusy-database",
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+        }
+    ]
+}

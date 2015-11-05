@@ -1,9 +1,7 @@
 FROM kolab/base-web-rc:latest
 
 RUN yum -y install \
-    roundcubemail \
-    roundcubemail-plugin-contextmenu \
-    roundcubemail-plugins-kolab 
+    kolab-freebusy
 
 ADD /Nulecule /Dockerfile /application-entity/
 ADD /artifacts /application-entity/artifacts/

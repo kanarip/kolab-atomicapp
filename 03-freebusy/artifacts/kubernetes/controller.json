@@ -2,26 +2,26 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-roundcubemail",
+        "name": "kolab-freebusy",
         "labels": {
-            "name": "kolab-roundcubemail"
+            "name": "kolab-freebusy"
         }
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-roundcubemail",
+            "name": "kolab-freebusy",
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-roundcubemail"
+                    "name": "kolab-freebusy"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-roundcubemail",
+                        "name": "kolab-freebusy",
                         "image": "$image",
                         "ports": [
                             {

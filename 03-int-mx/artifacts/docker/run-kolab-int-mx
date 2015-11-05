@@ -1,0 +1,8 @@
+docker run -d \
+    -p 25:25 \
+    --link kolab/ext-mx-in \
+    --link kolab/ext-mx-out \
+    --link kolab/imapb \
+    --link kolab/submission \
+    -e KOLAB_SERVICE_PASSWORD=$kolab_service_password \
+    $image

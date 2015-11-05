@@ -1,0 +1,38 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-syncroton",
+    "metadata": {
+        "name": "Kolab ActiveSync Interface",
+        "appversion": "14.0",
+        "description": "ActiveSync Interface"
+    },
+    "graph": [
+        {
+            "name": "kolab-syncroton",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/syncroton"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/run-kolab-syncroton"
+                ]
+            }
+        },
+        {
+            "name": "kolab-syncroton-database",
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+        }
+    ]
+}

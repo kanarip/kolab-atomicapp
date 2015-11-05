@@ -1,0 +1,38 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-irony",
+    "metadata": {
+        "name": "Kolab CalDAV, CardDAV and WebDAV Interface",
+        "appversion": "14.0",
+        "description": "CalDAV, CardDAV and WebDAV Interface"
+    },
+    "graph": [
+        {
+            "name": "kolab-irony",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/irony"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json",
+                    "file://artifacts/kubernetes/controller.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/run-kolab-irony"
+                ]
+            }
+        },
+        {
+            "name": "kolab-irony-database",
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+        }
+    ]
+}

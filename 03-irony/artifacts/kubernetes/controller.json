@@ -2,26 +2,26 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-roundcubemail",
+        "name": "kolab-irony",
         "labels": {
-            "name": "kolab-roundcubemail"
+            "name": "kolab-irony"
         }
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-roundcubemail",
+            "name": "kolab-irony",
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-roundcubemail"
+                    "name": "kolab-irony"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-roundcubemail",
+                        "name": "kolab-irony",
                         "image": "$image",
                         "ports": [
                             {

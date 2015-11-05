@@ -6,6 +6,11 @@ all: docs
 			$$image/. ; \
 	done
 
+list:
+	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
+		echo "kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g')" ; \
+	done
+
 docs:
 	make -C docs clean html
 
