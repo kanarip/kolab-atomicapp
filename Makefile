@@ -42,7 +42,7 @@ clean:
 
 really-clean:
 	for image in $$(docker images -aq); do \
-		docker rmi $$image 2>/dev/null || : ; \
+		docker rmi -f $$image 2>/dev/null || : ; \
 	done
 
 .PHONY: all docs push
