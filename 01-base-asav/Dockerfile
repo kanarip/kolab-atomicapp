@@ -14,6 +14,6 @@ CMD [ \
         "-u", "amavis", \
         "-g", "amavis", \
         "-c", "/etc/amavisd/amavisd.conf", \
-        "foreground"
+        "foreground" \
     ]
 
