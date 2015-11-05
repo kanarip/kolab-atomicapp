@@ -1,9 +1,0 @@
-docker run -d \
-    -p 110:110 \
-    -p 143:143 \
-    -p 993:993 \
-    -p 995:995 \
-    -p 4190:4190 \
-    -e CYRUS_ADMIN_PASSWORD=$cyrus_admin_password \
-    -e KOLAB_SERVICE_PASSWORD=$kolab_service_password \
-    $image
