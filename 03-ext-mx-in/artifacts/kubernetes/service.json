@@ -2,9 +2,9 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-mta",
+        "name": "kolab-ext-mx-in",
         "labels": {
-            "name": "kolab-mta"
+            "name": "kolab-ext-mx-in"
         }
     },
     "spec": {
@@ -13,15 +13,10 @@
                 "name": "smtp",
                 "port": 25,
                 "targetPort": 25
-            },
-            {
-                "name": "submission",
-                "port": 587,
-                "targetPort": 587
             }
         ],
         "selector": {
-            "name": "kolab-mta"
+            "name": "kolab-ext-mx-in"
         },
         "type": "LoadBalancer"
     }
