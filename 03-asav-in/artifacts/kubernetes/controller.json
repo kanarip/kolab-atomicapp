@@ -1,0 +1,36 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-asav-in",
+        "labels": {
+            "name": "kolab-asav-in"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "kolab-asav-in"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-asav-in"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-asav-in",
+                        "image": "kolab/asav-in",
+                        "ports": [
+                            {
+                                "containerPort": 10024
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

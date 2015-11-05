@@ -8,6 +8,14 @@
     },
     "graph": [
         {
+            "name": "kolab-asav-in",
+            "source": "docker://kolab/asav-in"
+        },
+        {
+            "name": "kolab-asav-out",
+            "source": "docker://kolab/asav-out"
+        },
+        {
             "name": "kolab-imap-prx",
             "source": "docker://kolab/imap-prx"
         },

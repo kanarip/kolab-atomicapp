@@ -1,0 +1,26 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-asav-in",
+    "metadata": {
+        "name": "Kolab Inbound Anti-Spam and Anti-Virus",
+        "appversion": "development",
+        "description": "Kolab Inbound Anti-Spam and Anti-Virus"
+    },
+    "graph": [
+        {
+            "name": "kolab-asav-in",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/asav-in"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/service.json"
+                ]
+            }
+        }
+    ]
+}
