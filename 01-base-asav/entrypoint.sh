@@ -2,7 +2,7 @@
 
 su -s /bin/bash - amavis -c 'nohup /usr/sbin/clamd -c /etc/clamd.d/amavisd.conf --pid /var/run/amavisd/clamd.pid &'
 
-if [ -z "$@" ]; then
+if [ $# -lt 1 ]; then
     exec /usr/sbin/amavisd \
         -u amavis \
         -g amavis \
