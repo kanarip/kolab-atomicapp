@@ -54,7 +54,8 @@ sake of de-duplication when deploying.
             subgraph cluster_mx {
                     color = white;
 
-                    "kolab/asav";
+                    "kolab/asav-in";
+                    "kolab/asav-out";
                     "kolab/ext-mx-in";
                     "kolab/ext-mx-out";
                     "kolab/int-mx";
@@ -98,7 +99,6 @@ sake of de-duplication when deploying.
                     "kolab/ldap-slave" [dir=back];
 
             "kolab/base-mx" ->
-                    "kolab/asav",
                     "kolab/ext-mx-in",
                     "kolab/ext-mx-out",
                     "kolab/int-mx",
@@ -143,6 +143,7 @@ Container Connection Model
 
             subgraph cluster_asav {
                     color = white;
+
                     "kolab/asav-in";
                     "kolab/asav-out";
                 }
