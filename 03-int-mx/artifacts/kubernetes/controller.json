@@ -2,27 +2,27 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-mta",
+        "name": "kolab-int-mx",
         "labels": {
-            "name": "kolab-mta"
+            "name": "kolab-int-mx"
         }
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-mta"
+            "name": "kolab-int-mx"
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-mta"
+                    "name": "kolab-int-mx"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-mta",
-                        "image": "kolab/mta",
+                        "name": "kolab-int-mx",
+                        "image": "kolab/int-mx",
                         "ports": [
                             {
                                 "name": "smtp",

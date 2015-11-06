@@ -2,9 +2,9 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-mta",
+        "name": "kolab-int-mx",
         "labels": {
-            "name": "kolab-mta"
+            "name": "kolab-int-mx"
         }
     },
     "spec": {
@@ -21,7 +21,7 @@
             }
         ],
         "selector": {
-            "name": "kolab-mta"
+            "name": "kolab-int-mx"
         },
         "type": "LoadBalancer"
     }

@@ -1,14 +1,14 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-mta",
+    "id": "kolab-int-mx",
     "metadata": {
-        "name": "Kolab Internal IMAP Frontend",
-        "appversion": "2.5.6",
-        "description": "Used for internal IMAP connections"
+        "name": "Kolab Internal Mail Exchanger",
+        "appversion": "development",
+        "description": "Kolab Internal Mail Exchanger"
     },
     "graph": [
         {
-            "name": "kolab-mta",
+            "name": "kolab-int-mx",
             "params": [
                 {
                     "name": "image",
@@ -38,7 +38,7 @@
     "requirements": [
         {
             "persistentVolume": {
-                "name": "kolab-mta-data",
+                "name": "kolab-int-mx-data",
                 "accessMode": "ReadWrite",
                 "size": 4
             }
