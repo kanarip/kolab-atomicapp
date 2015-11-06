@@ -23,6 +23,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-ext-mx-out"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         }

@@ -27,6 +27,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-chwala"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         },

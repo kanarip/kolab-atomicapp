@@ -26,6 +26,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/kolab-imap-mupdate-pod_run"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         }

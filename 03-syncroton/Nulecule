@@ -27,6 +27,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-syncroton"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         },

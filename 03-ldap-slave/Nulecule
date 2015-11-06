@@ -40,6 +40,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-ldap-slave"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         }

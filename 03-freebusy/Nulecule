@@ -27,6 +27,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-freebusy"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         },

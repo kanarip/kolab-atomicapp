@@ -27,6 +27,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-asav-in"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         }

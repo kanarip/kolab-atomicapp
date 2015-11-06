@@ -11,6 +11,11 @@
             "name": "kolab-ldap",
             "params": [
                 {
+                    "name": "domain",
+                    "description": "Domain",
+                    "default": "docker.container"
+                },
+                {
                     "name": "admin_password",
                     "description": "Administrator Password"
                 },
@@ -19,19 +24,9 @@
                     "description": "Directory Manager Password"
                 },
                 {
-                    "name": "ldap_root_dn",
-                    "description": "Root DN to use.",
-                    "default": "dc=kolab"
-                },
-                {
                     "name": "image",
                     "description": "Image to use to fulfill the LDAP master role",
                     "default": "kolab/ldap-master"
-                },
-                {
-                    "name": "hostname",
-                    "description": "Hostname in FQDN form.",
-                    "default": "ldap.docker.container"
                 }
             ],
             "artifacts": {
@@ -40,6 +35,13 @@
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-ldap-master"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
                 ]
             }
         }
