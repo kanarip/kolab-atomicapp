@@ -1,1 +1,1 @@
-FROM microwebapps/haproxy-frontend-atomicapp
+FROM microwebapps/haproxy-frontend-atomicapp:latest
