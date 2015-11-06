@@ -1,0 +1,23 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-submission",
+        "labels": {
+            "name": "kolab-submission"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "submission",
+                "port": 587,
+                "targetPort": 587
+            }
+        ],
+        "selector": {
+            "name": "kolab-submission"
+        },
+        "type": "LoadBalancer"
+    }
+}

@@ -1,0 +1,37 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-submission",
+        "labels": {
+            "name": "kolab-submission"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "kolab-submission"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-submission"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-submission",
+                        "image": "kolab/mta",
+                        "ports": [
+                            {
+                                "name": "submission",
+                                "containerPort": 587
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
