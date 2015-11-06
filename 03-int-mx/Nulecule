@@ -30,7 +30,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-mta"
+                    "file://artifacts/docker/run-kolab-int-mx"
                 ]
             }
         }
