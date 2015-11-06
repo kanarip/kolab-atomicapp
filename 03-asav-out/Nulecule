@@ -14,6 +14,11 @@
                     "name": "image",
                     "description": "Image to use",
                     "default": "kolab/asav-out"
+                },
+                {
+                    "name": "domain",
+                    "description": "Domain",
+                    "default": "docker.container"
                 }
             ],
             "artifacts": {
