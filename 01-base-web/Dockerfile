@@ -1,9 +1,10 @@
 FROM kolab/base:latest
 
 RUN yum -y install \
-    httpd \
-    php \
-    mod_ssl
+        httpd \
+        php \
+        mod_ssl && \
+    yum clean all
 
 EXPOSE 80 443
 

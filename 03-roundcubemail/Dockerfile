@@ -1,9 +1,10 @@
 FROM kolab/base-web-rc:latest
 
 RUN yum -y install \
-    roundcubemail \
-    roundcubemail-plugin-contextmenu \
-    roundcubemail-plugins-kolab 
+        roundcubemail \
+        roundcubemail-plugin-contextmenu \
+        roundcubemail-plugins-kolab && \
+    yum clean all
 
 ADD /Nulecule /Dockerfile /application-entity/
 ADD /artifacts /application-entity/artifacts/

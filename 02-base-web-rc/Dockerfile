@@ -7,6 +7,5 @@ RUN yum -y install \
         php-kolab \
         php-kolabformat && \
     yum -y --setopt tsflags= install \
-        roundcubemail-core && \
-    yum -y install \
-        roundcubemail
+        roundcubemail && \
+    yum clean all

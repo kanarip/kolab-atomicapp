@@ -1,6 +1,9 @@
 FROM kolab/base:latest
 
-RUN yum -y install amavisd-new clamav
+RUN yum -y install \
+        amavisd-new \
+        clamav && \
+    yum clean all
 
 VOLUME [ "/var/spool/amavisd" ]
 

@@ -1,8 +1,9 @@
 FROM kolab/base:latest
 
 RUN yum -y install \
-    cyrus-imapd \
-    kolab-saslauthd
+        cyrus-imapd \
+        kolab-saslauthd && \
+    yum clean all
 
 EXPOSE 110 143 993 995 4190
 
