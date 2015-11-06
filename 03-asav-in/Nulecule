@@ -14,11 +14,19 @@
                     "name": "image",
                     "description": "Image to use",
                     "default": "kolab/asav-in"
+                },
+                {
+                    "name": "domain",
+                    "description": "Domain",
+                    "default": "docker.container"
                 }
             ],
             "artifacts": {
                 "kubernetes": [
                     "file://artifacts/kubernetes/service.json"
+                ],
+                "docker": [
+                    "file://artifacts/docker/run-kolab-asav-in"
                 ]
             }
         }

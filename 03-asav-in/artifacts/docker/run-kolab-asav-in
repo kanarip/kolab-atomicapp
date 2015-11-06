@@ -1,0 +1,4 @@
+docker run -d \
+    -p 10024:10024 \
+    -e DOMAIN=${domain} \
+    $image
