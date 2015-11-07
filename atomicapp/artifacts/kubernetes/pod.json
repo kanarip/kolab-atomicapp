@@ -1,0 +1,24 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab",
+        "labels": {
+            "name": "kolab"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-asav-in",
+                "image": "$image",
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    }
+                ]
+            }
+        ]
+    }
+}

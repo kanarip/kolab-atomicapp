@@ -1,5 +1,10 @@
 docker run -d \
+    --name kolab-roundcubemail \
     -p 80:80 \
     -p 443:443 \
+    --link mariadb-atomicapp-app:mysql \
+    -e KOLAB_ROUNDCUBEMAIL_DB_NAME=$db_name \
+    -e KOLAB_ROUNDCUBEMAIL_DB_PASS=$db_pass \
+    -e KOLAB_ROUNDCUBEMAIL_DB_USER=$db_user \
     -e KOLAB_SERVICE_PASSWORD=$kolab_service_password \
     $image

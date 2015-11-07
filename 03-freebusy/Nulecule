@@ -16,14 +16,31 @@
                     "default": "kolab/freebusy"
                 },
                 {
+                    "name": "kolab_freebusy_database_password",
+                    "description": "Database password",
+                    "default": "$kolab_freebusy_database_password"
+                },
+                {
+                    "name": "kolab_freebusy_database_username",
+                    "description": "Database user",
+                    "default": "$kolab_freebusy_database_username"
+                },
+                {
+                    "name": "kolab_freebusy_database_root_password",
+                    "description": "Database Root User Password",
+                    "default": "$kolab_freebusy_database_root_password"
+                },
+                {
                     "name": "kolab_service_password",
-                    "description": "Kolab Service Password"
+                    "description": "Kolab Service Password",
+                    "default": "$kolab_service_password"
                 }
             ],
             "artifacts": {
                 "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                    "file://artifacts/kubernetes/controller.json"
+                    "file://artifacts/kubernetes/controller.json",
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-freebusy"
@@ -39,7 +56,24 @@
         },
         {
             "name": "kolab-freebusy-database",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp",
+            "params": [
+                {
+                    "name": "db_name",
+                    "description": "Database name",
+                    "value": "freebusy"
+                },
+                {
+                    "name": "db_pass",
+                    "description": "Database password",
+                    "value": "$kolab_freebusy_database_password"
+                },
+                {
+                    "name": "db_user",
+                    "description": "Database user",
+                    "value": "$kolab_freebusy_database_username"
+                }
+            ]
         }
     ]
 }

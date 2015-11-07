@@ -16,14 +16,31 @@
                     "default": "kolab/roundcubemail"
                 },
                 {
+                    "name": "db_name",
+                    "description": "Database name"
+                },
+                {
+                    "name": "db_pass",
+                    "description": "Database password"
+                },
+                {
+                    "name": "db_user",
+                    "description": "Database user"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password"
+                },
+                {
+                    "name": "ldap_host",
+                    "description": "LDAP Host"
                 }
             ],
             "artifacts": {
                 "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                    "file://artifacts/kubernetes/controller.json"
+                    "file://artifacts/kubernetes/controller.json",
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "docker": [
                     "file://artifacts/docker/run-kolab-roundcubemail"

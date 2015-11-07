@@ -1,0 +1,44 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-roundcubemail",
+        "labels": {
+            "name": "kolab-roundcubemail"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-roundcubemail",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 80
+                    },
+                    {
+                        "containerPort": 443
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "KOLAB_ROUNDCUBEMAIL_DB_HOST",
+                        "value": "$db_host"
+                    },
+                    {
+                        "name": "KOLAB_ROUNDCUBEMAIL_DB_NAME",
+                        "value": "$db_name"
+                    },
+                    {
+                        "name": "KOLAB_ROUNDCUBEMAIL_DB_PASS",
+                        "value": "$db_pass"
+                    },
+                    {
+                        "name": "KOLAB_ROUNDCUBEMAIL_DB_USER",
+                        "value": "$db_user"
+                    }
+                ]
+            }
+        ]
+    }
+}

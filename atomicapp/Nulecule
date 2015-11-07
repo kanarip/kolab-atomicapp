@@ -8,6 +8,51 @@
     },
     "graph": [
         {
+            "name": "kolab-atomicapp",
+            "params": [
+                {
+                    "name": "admin_password",
+                    "description": "Administrator Password",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "cyrus_admin_password",
+                    "description": "Cyrus Administrator Password",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "directory_manager_password",
+                    "description": "Directory Manager Password",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "domain",
+                    "description": "Domain name space to use.",
+                    "default": "docker.container"
+                },
+                {
+                    "name": "kolab_freebusy_database_password",
+                    "description": "Database password for Free/Busy",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Password",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "kolab_roundcubemail_database_password",
+                    "description": "Database password for Roundcube",
+                    "default": "welcome123"
+                }
+            ],
+            "artifacts": {
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json"
+                ]
+            }
+        },
+        {
             "name": "kolab-asav-in",
             "source": "docker://kolab/asav-in"
         },
@@ -17,7 +62,14 @@
         },
         {
             "name": "kolab-freebusy",
-            "source": "docker://kolab/freebusy"
+            "source": "docker://kolab/freebusy",
+            "params": [
+                {
+                    "name": "kolab_freebusy_database_root_password",
+                    "description": "Root password for Roundcube database server",
+                    "value": "welcome123"
+                }
+            ]
         },
         {
             "name": "kolab-http-prx",
@@ -69,7 +121,14 @@
         },
         {
             "name": "kolab-roundcubemail",
-            "source": "docker://kolab/roundcubemail"
+            "source": "docker://kolab/roundcubemail",
+            "params": [
+                {
+                    "name": "kolab_roundcubemail_database_root_password",
+                    "description": "Root password for Roundcube database server",
+                    "value": "welcome123"
+                }
+            ]
         },
         {
             "name": "kolab-submission",

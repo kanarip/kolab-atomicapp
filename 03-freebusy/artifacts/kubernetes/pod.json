@@ -1,0 +1,41 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-freebusy",
+        "labels": {
+            "name": "kolab-freebusy"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-freebusy",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 80
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "KOLAB_FREEBUSY_DB_HOST",
+                        "value": "$db_host"
+                    },
+                    {
+                        "name": "KOLAB_FREEBUSY_DB_NAME",
+                        "value": "$db_name"
+                    },
+                    {
+                        "name": "KOLAB_FREEBUSY_DB_PASS",
+                        "value": "$db_pass"
+                    },
+                    {
+                        "name": "KOLAB_FREEBUSY_DB_USER",
+                        "value": "$db_user"
+                    }
+                ]
+            }
+        ]
+    }
+}

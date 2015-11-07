@@ -17,11 +17,13 @@
                 },
                 {
                     "name": "admin_password",
-                    "description": "Administrator Password"
+                    "description": "Administrator Password",
+                    "default": "$admin_password"
                 },
                 {
                     "name": "directory_manager_password",
-                    "description": "Directory Manager Password"
+                    "description": "Directory Manager Password",
+                    "default": "$directory_manager_passsword"
                 },
                 {
                     "name": "image",
