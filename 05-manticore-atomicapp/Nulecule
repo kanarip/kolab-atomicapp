@@ -9,7 +9,7 @@
     "graph": [
         {
             "name": "manticore-mongodb-atomicapp",
-            "source": "docker://centos/mongodb-26-centos7"
+            "source": "docker://kolab/mongodb-centos7-atomicapp"
         },
         {
             "name": "manticore-atomicapp",
