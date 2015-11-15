@@ -17,7 +17,9 @@ sake of de-duplication when deploying.
             edge [color=gray50, fontname=Calibri, fontsize=11];
             node [shape=record, fontname=Calibri, fontsize=11];
 
+            "centos/centos7";
             "projectatomic/atomicapp";
+            "rhel7";
 
             "kolab/base";
             "kolab/base-asav";
@@ -26,6 +28,8 @@ sake of de-duplication when deploying.
             "kolab/base-mx";
             "kolab/base-web";
             "kolab/base-web-rc";
+
+            "kolab/mongodb";
 
             subgraph cluster_asav {
                     color = white;
@@ -70,18 +74,23 @@ sake of de-duplication when deploying.
                     "kolab/freebusy";
                     "kolab/http-prx";
                     "kolab/irony";
+                    "kolab/manticore";
                     "kolab/roundcubemail";
                     "kolab/syncroton";
                     "kolab/webadmin";
                 }
 
+            "centos/centos7" -> "kolab/mongodb" [dir=back];
+            "rhel7" -> "projectatomic/atomicapp" [dir=back];
             "projectatomic/atomicapp" -> "kolab/base" [dir=back];
 
+            "kolab/base" -> "kolab/base-asav" [dir=back];
             "kolab/base" -> "kolab/base-imap" [dir=back];
             "kolab/base" -> "kolab/base-ldap" [dir=back];
             "kolab/base" -> "kolab/base-mx" [dir=back];
             "kolab/base" -> "kolab/base-web" [dir=back];
             "kolab/base" -> "kolab/kolabd" [dir=back];
+            "kolab/base" -> "kolab/manticore" [dir=back];
 
             "kolab/base-asav" ->
                     "kolab/asav-in",
@@ -136,6 +145,7 @@ Container Connection Model
             subgraph cluster_db {
                     color = "white";
 
+                    "kolab/mongdb-centos7-atomicapp";
                     "projectatomic/mariadb-centos7-atomicapp";
                 }
 
@@ -182,6 +192,7 @@ Container Connection Model
                     "kolab/freebusy";
                     "kolab/http-prx";
                     "kolab/irony";
+                    "kolab/manticore";
                     "kolab/roundcubemail";
                     "kolab/syncroton";
                     "kolab/webadmin";

@@ -1,8 +1,5 @@
 FROM kolab/base-mx:latest
 
-ADD /Nulecule /Dockerfile /application-entity/
-ADD /artifacts /application-entity/artifacts/
-
 VOLUME [ "/var/spool/postfix" ]
 
 EXPOSE 25 10025

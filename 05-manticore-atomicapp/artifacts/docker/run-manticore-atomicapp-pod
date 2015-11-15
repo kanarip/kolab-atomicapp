@@ -1,0 +1,5 @@
+docker run -d \
+    --name manticore-atomicapp-app \
+    --link mongodb-atomicapp-app:manticore \
+    -p 8080:8080 \
+    $image

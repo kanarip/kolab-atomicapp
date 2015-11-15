@@ -1,30 +1,21 @@
 {
     "kind": "Pod",
     "apiVersion": "v1",
-    "id": "kolab",
+    "id": "manticore",
     "metadata": {
-        "name": "kolab",
+        "name": "manticore",
         "labels": {
-            "name": "kolab"
+            "name": "manticore"
         }
     },
     "spec": {
         "containers": [
             {
                 "name": "manticore",
-                "image": "$image",
+                "image": "kolab/manticore",
                 "ports": [
                     {
                         "containerPort": 8080
-                    }
-                ]
-            },
-            {
-                "name": "mongodb",
-                "image": "$image",
-                "ports": [
-                    {
-                        "containerPort": 27017
                     }
                 ]
             }

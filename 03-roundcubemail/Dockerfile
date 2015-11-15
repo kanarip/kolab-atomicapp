@@ -6,7 +6,4 @@ RUN yum -y install \
         roundcubemail-plugins-kolab && \
     yum clean all
 
-ADD /Nulecule /Dockerfile /application-entity/
-ADD /artifacts /application-entity/artifacts/
-
 EXPOSE 80 443

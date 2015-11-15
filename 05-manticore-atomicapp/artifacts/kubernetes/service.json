@@ -1,0 +1,24 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "manticore",
+        "labels": {
+            "name": "manticore"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "manticore",
+                "protocol": "TCP",
+                "port": 8080,
+                "targetPort": 8080,
+                "nodePort": 0
+            }
+        ],
+        "selector": {
+            "name": "manticore"
+        }
+    }
+}
