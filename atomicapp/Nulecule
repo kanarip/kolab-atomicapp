@@ -8,6 +8,14 @@
     },
     "graph": [
         {
+            "name": "kolab-asav-in",
+            "source": "docker://kolab/asav-in-atomicapp"
+        },
+        {
+            "name": "kolab-asav-out",
+            "source": "docker://kolab/asav-out-atomicapp"
+        },
+        {
             "name": "kolab-manticore",
             "source": "docker://kolab/manticore-atomicapp"
         }

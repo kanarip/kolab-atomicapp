@@ -27,8 +27,5 @@
         "selector": {
             "name": "kolab"
         }
-    },
-    "status": {
-        "loadBalancer": {}
     }
 }
