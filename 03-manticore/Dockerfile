@@ -24,11 +24,11 @@ RUN grunt build
 
 RUN mv server/config/local.env.sample.js server/config/local.env.js
 RUN sed -r -i \
-    -e "s|DOMAIN:.*,$|DOMAIN: 'http://localhost:8080',/g" \
+    -e "s|DOMAIN:.*,$|DOMAIN: 'http://localhost:8080',|g" \
     -e "s|STORAGE:.*$|STORAGE: 'local'|g" \
-    -e "|WEBDAV_|d" \
-    -e "|LDAP_|d" \
-    -e "|LOCODOC_|d" \
+    -e "/WEBDAV_/d" \
+    -e "/LDAP_/d" \
+    -e "/LOCODOC_/d" \
     server/config/local.env.js
 
 RUN sed -r -i \
