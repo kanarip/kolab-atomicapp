@@ -24,10 +24,19 @@ push:
 		docker push kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g') ; \
 	done
 
-run:
-	vagrant destroy ; \
-		vagrant up ; \
-		vagrant ssh --command 'atomic install kolab/atomicapp; sed -e "s/None/welcome123/g" answers.conf.sample > answers.conf'
+run: clean all
+	pwd=$$(pwd) ; \
+		cd $${TMPDIR:-/tmp} ; \
+		atomic uninstall kolab/atomicapp ; \
+		docker build -t kolab/atomicapp $${pwd}/atomicapp/. ; \
+		sudo rm -rf \
+			answers.conf \
+			answers.conf.sample \
+			artifacts/ \
+			Dockerfile \
+			Nulecule \
+			external/ ; \
+		atomic install kolab/atomicapp
 
 clean:
 	for container in $$(docker ps -q); do \
@@ -41,8 +50,10 @@ clean:
 	done
 
 really-clean:
-	for image in $$(docker images -aq); do \
-		docker rmi -f $$image 2>/dev/null || : ; \
+	while [ ! -z "$$(docker images -aq)" ]; do \
+		for image in $$(docker images -aq); do \
+			docker rmi -f $$image 2>/dev/null || : ; \
+		done ; \
 	done
 
 .PHONY: all docs push
