@@ -1,8 +1,8 @@
 docker run -d \
     --name manticore-atomicapp-app \
     --link mongodb-atomicapp-app:manticore \
-    -e MONGODB_ADMIN_EMAIL=$mongodb_admin_email \
-    -e MONGODB_ADMIN_PASSWORD=$mongodb_admin_password \
+    -e MANTICORE_ADMIN_EMAIL=$manticore_admin_email \
+    -e MANTICORE_ADMIN_PASSWORD=$manticore_admin_password \
     -e MONGODB_DATABASE=$mongodb_database \
     -e MONGODB_HOSTNAME=$mongodb_hostname \
     -e MONGODB_PASSWORD=$mongodb_password \

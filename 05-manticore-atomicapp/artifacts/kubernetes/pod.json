@@ -20,12 +20,12 @@
                 ],
                 "env": [
                     {
-                        "name": "MONGODB_ADMIN_EMAIL",
-                        "value": "$mongodb_admin_email"
+                        "name": "MANTICORE_ADMIN_EMAIL",
+                        "value": "$manticore_admin_email"
                     },
                     {
-                        "name": "MONGODB_ADMIN_PASSWORD",
-                        "value": "$mongodb_admin_password"
+                        "name": "MANTICORE_ADMIN_PASSWORD",
+                        "value": "$manticore_admin_password"
                     },
                     {
                         "name": "MONGODB_DATABASE",
