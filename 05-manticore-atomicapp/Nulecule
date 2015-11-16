@@ -20,6 +20,15 @@
                     "default": "kolab/manticore"
                 },
                 {
+                    "name": "manticore_admin_email",
+                    "description": "Administrator email address",
+                    "default": "admin@cluster.local"
+                },
+                {
+                    "name": "manticore_admin_password",
+                    "description": "Administrator password"
+                },
+                {
                     "name": "mongodb_database",
                     "description": "MongoDB Database Name"
                 },
