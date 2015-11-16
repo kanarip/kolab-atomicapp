@@ -36,11 +36,17 @@ run: clean all
 			Dockerfile \
 			Nulecule \
 			external/ ; \
-		atomic install kolab/atomicapp
+		atomic install kolab/atomicapp && \
+			sed -e 's/None/welcome123/g' answers.conf.sample > answers.conf && \
+			atomic run kolab/atomicapp
 
 clean:
+	kubectl delete service manticore 2>/dev/null || :
+	kubectl delete service mongodb 2>/dev/null || :
+	kubectl delete pod manticore 2>/dev/null || :
+	kubectl delete pod mongodb 2>/dev/null || :
 	for container in $$(docker ps -q); do \
-		docker kill --signal="SIGKILL" $$container ; \
+		docker kill --signal="SIGKILL" $$container || : ; \
 	done
 	for container in $$(docker ps -aq); do \
 		docker rm $$container ; \
