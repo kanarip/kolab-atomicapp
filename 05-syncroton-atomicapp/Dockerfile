@@ -1,5 +1,9 @@
-FROM kolab/base-web-rc:latest
+FROM projectatomic/atomicapp:0.1.12
 
-RUN yum -y install \
-        kolab-syncroton && \
-    yum clean all
+MAINTAINER Jeroen van Meeuwen <vanmeeuwen@kolabsys.com>
+
+LABEL io.projectatomic.nulecule.specversion="0.0.2" \
+      io.projectatomic.nulecule.providers="docker,kubernetes,openshift"
+
+ADD /Nulecule /Dockerfile /application-entity/
+ADD /artifacts /application-entity/artifacts/

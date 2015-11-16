@@ -1,10 +1,9 @@
-FROM kolab/base-mx:latest
+FROM projectatomic/atomicapp:0.1.12
 
-VOLUME [ "/var/spool/postfix" ]
+MAINTAINER Jeroen van Meeuwen <vanmeeuwen@kolabsys.com>
 
-EXPOSE 25 587
+LABEL io.projectatomic.nulecule.specversion="0.0.2" \
+      io.projectatomic.nulecule.providers="docker,kubernetes,openshift"
 
-ADD /entrypoint.sh /entrypoint.sh
-RUN chmod a+x /entrypoint.sh
-
-CMD [ "/usr/libexec/postfix/master", "-D" ]
+ADD /Nulecule /Dockerfile /application-entity/
+ADD /artifacts /application-entity/artifacts/

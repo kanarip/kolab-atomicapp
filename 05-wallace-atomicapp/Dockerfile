@@ -1,9 +1,9 @@
-FROM kolab/base:latest
+FROM projectatomic/atomicapp:0.1.12
 
-RUN yum -y install \
-        wallace && \
-    yum clean all
+MAINTAINER Jeroen van Meeuwen <vanmeeuwen@kolabsys.com>
 
-VOLUME [ "/var/spool/pykolab/wallace" ]
+LABEL io.projectatomic.nulecule.specversion="0.0.2" \
+      io.projectatomic.nulecule.providers="docker,kubernetes,openshift"
 
-EXPOSE 10026
+ADD /Nulecule /Dockerfile /application-entity/
+ADD /artifacts /application-entity/artifacts/

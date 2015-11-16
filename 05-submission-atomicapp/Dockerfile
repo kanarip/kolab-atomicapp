@@ -1,7 +1,9 @@
-FROM kolab/base-mx:latest
+FROM projectatomic/atomicapp:0.1.12
 
-RUN yum -y install \
-        kolab-saslauthd && \
-    yum clean all
+MAINTAINER Jeroen van Meeuwen <vanmeeuwen@kolabsys.com>
 
-EXPOSE 587
+LABEL io.projectatomic.nulecule.specversion="0.0.2" \
+      io.projectatomic.nulecule.providers="docker,kubernetes,openshift"
+
+ADD /Nulecule /Dockerfile /application-entity/
+ADD /artifacts /application-entity/artifacts/

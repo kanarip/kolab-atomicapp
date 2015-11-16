@@ -1,10 +1,9 @@
-FROM kolab/base-web-rc:latest
+FROM projectatomic/atomicapp:0.1.12
 
-RUN yum -y install \
-        kolab-freebusy && \
-    yum clean all
+MAINTAINER Jeroen van Meeuwen <vanmeeuwen@kolabsys.com>
 
-EXPOSE 80 443
+LABEL io.projectatomic.nulecule.specversion="0.0.2" \
+      io.projectatomic.nulecule.providers="docker,kubernetes,openshift"
 
-ADD /entrypoint.sh /entrypoint.sh
-RUN chmod a+x /entrypoint.sh
+ADD /Nulecule /Dockerfile /application-entity/
+ADD /artifacts /application-entity/artifacts/
