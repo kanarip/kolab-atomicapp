@@ -37,7 +37,13 @@ RUN sed -r -i \
 
 RUN ln -s dist/public/ public
 
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh
+ENTRYPOINT [ "/entrypoint.sh" ]
+
+USER nobody
+
 ENV NODE_PATH /usr/lib/node_modules:/var/www/manticore.git/node_modules
 ENV NODE_ENV production
 
-CMD [ "/bin/node", "/usr/share/manticore/server/app.js" ]
+CMD [ "/bin/node", "/var/www/manticore.git/server/app.js" ]
