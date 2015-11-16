@@ -35,6 +35,10 @@ RUN sed -r -i \
     -e 's|^(\s+)root:.*,$|\1root: "/var/www/manticore.git",|g' \
     server/config/environment/index.js
 
+RUN chown nobody:nobody \
+    /var/www/manticore.git/server/config/seed.js \
+    /var/www/manticore.git/server/config/
+
 RUN ln -s dist/public/ public
 
 ADD /entrypoint.sh /entrypoint.sh
