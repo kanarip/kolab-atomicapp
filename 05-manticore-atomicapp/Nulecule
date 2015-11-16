@@ -18,11 +18,28 @@
                     "name": "image",
                     "description": "Image to use",
                     "default": "kolab/manticore"
+                },
+                {
+                    "name": "mongodb_database",
+                    "description": "MongoDB Database Name"
+                },
+                {
+                    "name": "mongodb_hostname",
+                    "description": "MongoDB Server Hostname",
+                    "default": "mongodb:27017"
+                },
+                {
+                    "name": "mongodb_password",
+                    "description": "MongoDB User Password"
+                },
+                {
+                    "name": "mongodb_username",
+                    "description": "MongoDB Username"
                 }
             ],
             "artifacts": {
                 "docker": [
-                    "file://artifacts/docker/run-manticore-atomicapp-pod"
+                    "file://artifacts/docker/run-pod"
                 ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/pod.json",
