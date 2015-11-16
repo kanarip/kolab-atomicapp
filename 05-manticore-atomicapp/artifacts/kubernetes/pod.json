@@ -12,10 +12,28 @@
         "containers": [
             {
                 "name": "manticore",
-                "image": "kolab/manticore",
+                "image": "$image",
                 "ports": [
                     {
                         "containerPort": 8080
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "MONGODB_DATABASE",
+                        "value": "$mongodb_database"
+                    },
+                    {
+                        "name": "MONGODB_HOSTNAME",
+                        "value": "$mongodb_hostname"
+                    },
+                    {
+                        "name": "MONGODB_PASSWORD",
+                        "value": "$mongodb_password"
+                    },
+                    {
+                        "name": "MONGODB_USERNAME",
+                        "value": "$mongodb_username"
                     }
                 ]
             }

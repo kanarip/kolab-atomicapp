@@ -5,16 +5,16 @@
         "name": "manticore",
         "labels": {
             "name": "manticore"
+        },
+        "annotations": {
+            "description": "Exposes and load balances the application pods"
         }
     },
     "spec": {
         "ports": [
             {
-                "name": "manticore",
-                "protocol": "TCP",
                 "port": 8080,
-                "targetPort": 8080,
-                "nodePort": 0
+                "targetPort": 8080
             }
         ],
         "selector": {
