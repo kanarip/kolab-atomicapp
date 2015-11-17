@@ -219,6 +219,7 @@ Container Connection Model
             "kolab/http-prx" -> "kolab/chwala"          [label="(60)"];
             "kolab/http-prx" -> "kolab/freebusy"        [label="(48)"];
             "kolab/http-prx" -> "kolab/irony"           [label="(49)"];
+            "kolab/http-prx" -> "kolab/manticore"       [label="(66)"];
             "kolab/http-prx" -> "kolab/roundcubemail"   [label="(50)"];
             "kolab/http-prx" -> "kolab/syncroton"       [label="(51)"];
             "kolab/http-prx" -> "kolab/webadmin"        [label="(52)"];
@@ -257,6 +258,9 @@ Container Connection Model
 
             "kolab/ldap-master" -> "kolab/ldap-slave"   [label="(35)"];
 
+            "kolab/manticore" -> "centos/mongodb-26-centos7" [label="(64)"];
+            "kolab/manticore" -> "kolab/chwala"         [label="(65)"];
+
             "kolab/roundcubemail" -> "kolab/freebusy"   [label="(36)"];
             "kolab/roundcubemail" -> "kolab/imapf-int"  [label="(37)"];
             "kolab/roundcubemail" -> "projectatomic/mariadb-centos7-atomicapp" [label="(38)"];
@@ -273,7 +277,6 @@ Container Connection Model
 
             "kolab/webadmin" -> "kolab/ldap-master"     [label="(46)"];
             "kolab/webadmin" -> "projectatomic/mariadb-centos7-atomicapp" [label="(47)"];
-
 
             "External SMTP Servers" -> "kolab/ext-mx-in"[label="(56)"];
             "User / Client" -> "kolab/http-prx"         [label="(57)"];
@@ -407,5 +410,11 @@ Container Connection Model
     | 62 | kolab/chwala        | kolab/...                               |      ??/tcp |                       |
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
     | 63 | kolab/chwala        | kolab/...                               |      ??/tcp |                       |
+    +----+---------------------+-----------------------------------------+-------------+-----------------------+
+    | 64 | kolab/manticore     | centos/mongodb-26-centos7               |      ??/tcp |                       |
+    +----+---------------------+-----------------------------------------+-------------+-----------------------+
+    | 65 | kolab/manticore     | kolab/chwala                            |      ??/tcp |                       |
+    +----+---------------------+-----------------------------------------+-------------+-----------------------+
+    | 66 | kolab/http-prx      | kolab/manticore                         |      ??/tcp |                       |
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
 
