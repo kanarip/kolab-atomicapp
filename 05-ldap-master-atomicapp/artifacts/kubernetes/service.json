@@ -22,6 +22,7 @@
         ],
         "selector": {
             "name": "kolab-ldap-master"
-        }
+        },
+        "type": "LoadBalancer"
     }
 }

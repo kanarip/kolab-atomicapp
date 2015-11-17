@@ -23,6 +23,10 @@
                 ],
                 "env": [
                     {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
                         "name": "KOLAB_SERVICE_PASSWORD",
                         "value": "$kolab_service_password"
                     }

@@ -20,13 +20,14 @@
                     "default": "kolab/ext-mx-in"
                 },
                 {
+                    "name": "domain",
+                    "description": "Domain name space",
+                    "default": "docker.container"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password",
                     "default": "welcome123"
-                },
-                {
-                    "name": "ldap_uri",
-                    "description": "URI to LDAP"
                 }
             ],
             "artifacts": {

@@ -20,6 +20,11 @@
                     "default": "kolab/ext-mx-out"
                 },
                 {
+                    "name": "domain",
+                    "description": "Domain name space",
+                    "default": "docker.container"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Account Password"
                 }
