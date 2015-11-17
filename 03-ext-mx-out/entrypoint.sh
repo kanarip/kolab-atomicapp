@@ -1,5 +1,7 @@
 #!/bin/bash
 
+env
+
 if [ ! -d "/etc/postfix/ldap/" ]; then
     setup-kolab --default mta
     systemctl stop postfix
