@@ -1,4 +1,7 @@
 docker run -d \
+    --name kolab-asav-in-atomicapp-app \
+    --link kolab-ext-mx-in-atomicapp-app:10025 \
     -p 10024:10024 \
     -e DOMAIN=${domain} \
+    -e FORWARD_METHOD=${forward_method} \
     $image

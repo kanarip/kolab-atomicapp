@@ -1,0 +1,30 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-asav-in",
+    "metadata": {
+        "name": "kolab-asav-in",
+        "labels": {
+            "name": "kolab-asav-in"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-asav-in",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 10024
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    }
+                ]
+            }
+        ]
+    }
+}

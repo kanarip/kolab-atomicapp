@@ -1,6 +1,6 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-asav-out",
+    "id": "kolab-asav-in",
     "metadata": {
         "name": "Kolab Inbound Anti-Spam and Anti-Virus",
         "appversion": "development",
@@ -8,12 +8,12 @@
     },
     "graph": [
         {
-            "name": "kolab-asav-out",
+            "name": "kolab-asav-in",
             "params": [
                 {
                     "name": "image",
                     "description": "Image to use",
-                    "default": "kolab/asav-out"
+                    "default": "kolab/asav-in"
                 },
                 {
                     "name": "domain",
@@ -22,11 +22,12 @@
                 }
             ],
             "artifacts": {
-                "kubernetes": [
-                    "file://artifacts/kubernetes/service.json"
-                ],
                 "docker": [
                     "file://artifacts/docker/run-pod"
+                ],
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [
                     {
