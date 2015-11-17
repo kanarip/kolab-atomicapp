@@ -2,9 +2,9 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-asav-in",
+        "name": "kolab-asav-out",
         "labels": {
-            "name": "kolab-asav-in"
+            "name": "kolab-asav-out"
         }
     },
     "spec": {
@@ -15,7 +15,7 @@
             }
         ],
         "selector": {
-            "name": "kolab-asav-in"
+            "name": "kolab-asav-out"
         }
     }
 }
