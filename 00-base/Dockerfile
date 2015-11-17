@@ -13,6 +13,7 @@ RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         bind-utils \
         net-tools \
         openldap-clients \
+        strace \
         telnet \
         traceroute && \
     yum clean all
