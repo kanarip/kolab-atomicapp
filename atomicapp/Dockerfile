@@ -1,4 +1,4 @@
-FROM projectatomic/atomicapp:0.1.12
+FROM projectatomic/atomicapp:0.2.1
 
 MAINTAINER Kolab Systems <contact@kolabsys.com>
 

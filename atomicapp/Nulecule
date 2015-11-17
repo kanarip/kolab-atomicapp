@@ -8,6 +8,22 @@
     },
     "graph": [
         {
+            "name": "kolab-ext-mx-in",
+            "source": "docker://kolab/ext-mx-in-atomicapp"
+        },
+        {
+            "name": "kolab-ext-mx-out",
+            "source": "docker://kolab/ext-mx-out-atomicapp"
+        },
+        {
+            "name": "kolab-int-mx",
+            "source": "docker://kolab/int-mx-atomicapp"
+        },
+        {
+            "name": "kolab-ldap-master",
+            "source": "docker://kolab/ldap-master-atomicapp"
+        },
+        {
             "name": "kolab-manticore",
             "source": "docker://kolab/manticore-atomicapp"
         }
