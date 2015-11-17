@@ -43,7 +43,7 @@
                     "file://artifacts/kubernetes/service.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-roundcubemail"
+                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

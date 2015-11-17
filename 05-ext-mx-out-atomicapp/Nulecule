@@ -22,7 +22,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-ext-mx-out"
+                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

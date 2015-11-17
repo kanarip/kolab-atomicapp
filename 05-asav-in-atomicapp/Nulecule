@@ -26,7 +26,7 @@
                     "file://artifacts/kubernetes/service.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-asav-out"
+                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

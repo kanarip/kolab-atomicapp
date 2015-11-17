@@ -32,7 +32,7 @@
                     "file://artifacts/kubernetes/controller.json"
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-wallace"
+                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

@@ -36,7 +36,7 @@
                     "file://artifacts/kubernetes/service.json",
                 ],
                 "docker": [
-                    "file://artifacts/docker/run-kolab-ldap-master"
+                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {
