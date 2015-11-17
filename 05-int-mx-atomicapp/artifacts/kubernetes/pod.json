@@ -1,0 +1,34 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-int-mx",
+    "metadata": {
+        "name": "kolab-int-mx",
+        "labels": {
+            "name": "kolab-int-mx"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-int-mx",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 25
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "CYRUS_ADMIN_PASSWORD",
+                        "value": "$cyrus_admin_password"
+                    },
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
+                ]
+            }
+        ]
+    }
+}

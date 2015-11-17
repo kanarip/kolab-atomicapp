@@ -1,4 +1,6 @@
 docker run -d \
+    --name kolab-ext-mx-in-atomicapp-app \
+    --link kolab-asav-in-atomicapp-app:amavis \
     -p 25:25 \
     -p 10025:10025 \
     -e KOLAB_SERVICE_PASSWORD=$kolab_service_password \

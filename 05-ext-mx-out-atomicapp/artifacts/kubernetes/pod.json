@@ -1,0 +1,33 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-ext-mx-out",
+    "metadata": {
+        "name": "kolab-ext-mx-out",
+        "labels": {
+            "name": "kolab-ext-mx-out"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-ext-mx-out",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 25
+                    },
+                    {
+                        "containerPort": 10025
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
+                ]
+            }
+        ]
+    }
+}

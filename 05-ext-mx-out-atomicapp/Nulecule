@@ -8,21 +8,29 @@
     },
     "graph": [
         {
+            "name": "kolab-asav-out",
+            "source": "docker://kolab/asav-out-atomicapp"
+        },
+        {
             "name": "kolab-ext-mx-out",
             "params": [
                 {
                     "name": "image",
                     "description": "Image to use",
                     "default": "kolab/ext-mx-out"
+                },
+                {
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Account Password"
                 }
             ],
             "artifacts": {
-                "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                    "file://artifacts/kubernetes/controller.json"
-                ],
                 "docker": [
                     "file://artifacts/docker/run-pod"
+                ],
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [
                     {
@@ -31,15 +39,6 @@
                         ]
                     }
                 ]
-            }
-        }
-    ],
-    "requirements": [
-        {
-            "persistentVolume": {
-                "name": "kolab-ext-mx-out-data",
-                "accessMode": "ReadWrite",
-                "size": 4
             }
         }
     ]
