@@ -10,7 +10,7 @@ CMD [ \
         "-i", \
         "/var/run/dirsrv/slapd-ldap.pid", \
         "-w", \
-        "/var/run/dirsrv/slapd-ldap.startpid" \
+        "/var/run/dirsrv/slapd-ldap.startpid", \
         "-d", \
         "0" \
     ]
