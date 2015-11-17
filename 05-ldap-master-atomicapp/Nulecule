@@ -2,14 +2,19 @@
     "specversion": "0.0.2",
     "id": "kolab-ldap-master",
     "metadata": {
-        "name": "Kolab LDAP",
-        "appversion": "1.2.11.15",
-        "description": "Kolab LDAP"
+        "name": "Kolab LDAP Master",
+        "appversion": "development",
+        "description": "Kolab LDAP Master"
     },
     "graph": [
         {
-            "name": "kolab-ldap",
+            "name": "kolab-ldap-master",
             "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use to fulfill the LDAP master role",
+                    "default": "kolab/ldap-master"
+                },
                 {
                     "name": "domain",
                     "description": "Domain",
@@ -18,25 +23,31 @@
                 {
                     "name": "admin_password",
                     "description": "Administrator Password",
-                    "default": "$admin_password"
+                    "default": "welcome123"
+                },
+                {
+                    "name": "cyrus_admin_password",
+                    "description": "Cyrus Administrator Password",
+                    "default": "welcome123"
                 },
                 {
                     "name": "directory_manager_password",
                     "description": "Directory Manager Password",
-                    "default": "$directory_manager_passsword"
+                    "default": "welcome123"
                 },
                 {
-                    "name": "image",
-                    "description": "Image to use to fulfill the LDAP master role",
-                    "default": "kolab/ldap-master"
+                    "name": "kolab_service_password",
+                    "description": "Kolab Service Account Password",
+                    "default": "welcome123"
                 }
             ],
             "artifacts": {
-                "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                ],
                 "docker": [
                     "file://artifacts/docker/run-pod"
+                ],
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [
                     {
@@ -45,15 +56,6 @@
                         ]
                     }
                 ]
-            }
-        }
-    ],
-    "requirements": [
-        {
-            "persistentVolume": {
-                "name": "kolab-ldap-master-data",
-                "accessMode": "ReadWrite",
-                "size": 4
             }
         }
     ]

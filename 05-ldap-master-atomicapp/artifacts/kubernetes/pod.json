@@ -1,0 +1,49 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-ldap-master",
+    "metadata": {
+        "name": "kolab-ldap-master",
+        "labels": {
+            "name": "kolab-ldap-master"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-ldap-master",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 389
+                    },
+                    {
+                        "containerPort": 636
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
+                        "name": "ADMIN_PASSWORD",
+                        "value": "$admin_password"
+                    },
+                    {
+                        "name": "CYRUS_ADMIN_PASSWORD",
+                        "value": "$cyrus_admin_password"
+                    },
+                    {
+                        "name": "DIRECTORY_MANAGER_PASSWORD",
+                        "value": "$directory_manager_password"
+                    },
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
+                ]
+            }
+        ]
+    }
+}

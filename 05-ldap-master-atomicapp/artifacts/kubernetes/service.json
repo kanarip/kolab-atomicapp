@@ -18,11 +18,6 @@
                 "name": "ldaps",
                 "port": 636,
                 "targetPort": 636
-            },
-            {
-                "name": "389-admin",
-                "port": 9830,
-                "targetPort": 9830
             }
         ],
         "selector": {
