@@ -9,5 +9,8 @@ CMD [ \
         "/data/etc/dirsrv/slapd-ldap", \
         "-i", \
         "/var/run/dirsrv/slapd-ldap.pid", \
-        "-w /var/run/dirsrv/slapd-ldap.startpid" \
+        "-w", \
+        "/var/run/dirsrv/slapd-ldap.startpid" \
+        "-d", \
+        "0" \
     ]
