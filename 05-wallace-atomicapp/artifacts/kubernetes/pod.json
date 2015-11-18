@@ -1,0 +1,38 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-wallace",
+    "metadata": {
+        "name": "kolab-wallace",
+        "labels": {
+            "name": "kolab-wallace"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-wallace",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 10026
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
+                        "name": "CYRUS_ADMIN_PASSWORD",
+                        "value": "$cyrus_admin_password"
+                    },
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
+                ]
+            }
+        ]
+    }
+}
