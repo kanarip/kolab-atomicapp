@@ -2,9 +2,9 @@
     "specversion": "0.0.2",
     "id": "kolab-webadmin",
     "metadata": {
-        "name": "Kolab ActiveSync Interface",
-        "appversion": "14.0",
-        "description": "ActiveSync Interface"
+        "name": "Kolab Web Administration Interface",
+        "appversion": "development",
+        "description": "Kolab Web Administration Interface"
     },
     "graph": [
         {
@@ -16,18 +16,23 @@
                     "default": "kolab/webadmin"
                 },
                 {
+                    "name": "domain",
+                    "description": "Domain Name Space",
+                    "default": "docker.container"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password",
-                    "default": "$kolab_service_password"
+                    "default": "welcome123"
                 }
             ],
             "artifacts": {
-                "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                    "file://artifacts/kubernetes/controller.json"
-                ],
                 "docker": [
                     "file://artifacts/docker/run-pod"
+                ],
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [
                     {

@@ -1,0 +1,37 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-webadmin",
+    "metadata": {
+        "name": "kolab-webadmin",
+        "labels": {
+            "name": "kolab-webadmin"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-webadmin",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 80
+                    },
+                    {
+                        "containerPort": 443
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
+                ]
+            }
+        ]
+    }
+}
