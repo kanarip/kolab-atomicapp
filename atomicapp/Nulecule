@@ -24,6 +24,10 @@
             "source": "docker://kolab/freebusy-atomicapp"
         },
         {
+            "name": "kolab-irony",
+            "source": "docker://kolab/irony-atomicapp"
+        },
+        {
             "name": "kolab-imap-mupdate",
             "source": "docker://kolab/imap-mupdate-atomicapp"
         },
@@ -42,6 +46,10 @@
         {
             "name": "kolab-roundcubemail",
             "source": "docker://kolab/roundcubemail-atomicapp"
+        },
+        {
+            "name": "kolab-syncroton",
+            "source": "docker://kolab/syncroton-atomicapp"
         },
         {
             "name": "kolab-webadmin",

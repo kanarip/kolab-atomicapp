@@ -21,6 +21,26 @@
                     "default": "docker.container"
                 },
                 {
+                    "name": "kolab_webadmin_database_name",
+                    "description": "Database name",
+                    "default": "kolab"
+                },
+                {
+                    "name": "kolab_webadmin_database_password",
+                    "description": "Database password",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "kolab_webadmin_database_username",
+                    "description": "Database user",
+                    "default": "kolab"
+                },
+                {
+                    "name": "directory_manager_password",
+                    "description": "Directory Manager Password",
+                    "default": "welcome123"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password",
                     "default": "welcome123"
@@ -45,7 +65,7 @@
         },
         {
             "name": "kolab-webadmin-database",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+            "source": "docker://kolab/webadmin-database"
         }
     ]
 }

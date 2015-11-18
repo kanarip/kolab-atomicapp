@@ -6,4 +6,5 @@ RUN yum -y install \
         roundcubemail-plugins-kolab && \
     yum clean all
 
-EXPOSE 80 443
+ADD /entrypoint.sh /entrypoint.sh
+RUN chmod a+x /entrypoint.sh

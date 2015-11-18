@@ -22,20 +22,24 @@
                 ],
                 "env": [
                     {
-                        "name": "KOLAB_ROUNDCUBEMAIL_DB_HOST",
-                        "value": "$db_host"
+                        "name": "DOMAIN",
+                        "value": "$domain"
                     },
                     {
-                        "name": "KOLAB_ROUNDCUBEMAIL_DB_NAME",
-                        "value": "$db_name"
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
                     },
                     {
-                        "name": "KOLAB_ROUNDCUBEMAIL_DB_PASS",
-                        "value": "$db_pass"
+                        "name": "KOLAB_ROUNDCUBEMAIL_DATABASE_NAME",
+                        "value": "$kolab_roundcubemail_database_name"
                     },
                     {
-                        "name": "KOLAB_ROUNDCUBEMAIL_DB_USER",
-                        "value": "$db_user"
+                        "name": "KOLAB_ROUNDCUBEMAIL_DATABASE_PASSWORD",
+                        "value": "$kolab_roundcubemail_database_password"
+                    },
+                    {
+                        "name": "KOLAB_ROUNDCUBEMAIL_DATABASE_USERNAME",
+                        "value": "$kolab_roundcubemail_database_username"
                     }
                 ]
             }

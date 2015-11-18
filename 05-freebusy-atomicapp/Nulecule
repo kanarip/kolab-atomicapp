@@ -16,24 +16,28 @@
                     "default": "kolab/freebusy"
                 },
                 {
+                    "name": "domain",
+                    "description": "Domain Name Space",
+                    "default": "docker.container"
+                },
+                {
+                    "name": "kolab_freebusy_database_name",
+                    "description": "Database name",
+                    "default": "freebusy"
+                },
+                {
                     "name": "kolab_freebusy_database_password",
                     "description": "Database password",
-                    "default": "$kolab_freebusy_database_password"
+                    "default": "welcome123"
                 },
                 {
                     "name": "kolab_freebusy_database_username",
                     "description": "Database user",
-                    "default": "$kolab_freebusy_database_username"
-                },
-                {
-                    "name": "kolab_freebusy_database_root_password",
-                    "description": "Database Root User Password",
-                    "default": "$kolab_freebusy_database_root_password"
+                    "default": "kolab"
                 },
                 {
                     "name": "kolab_service_password",
-                    "description": "Kolab Service Password",
-                    "default": "$kolab_service_password"
+                    "description": "Kolab Service Password"
                 }
             ],
             "artifacts": {
@@ -56,7 +60,7 @@
         },
         {
             "name": "kolab-freebusy-database",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+            "source": "docker://kolab/freebusy-database"
         }
     ]
 }

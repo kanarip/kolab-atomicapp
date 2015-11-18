@@ -40,7 +40,7 @@
         },
         {
             "name": "kolab-chwala-database",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+            "source": "docker://kolab/chwala-database"
         }
     ]
 }

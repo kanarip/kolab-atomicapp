@@ -27,8 +27,24 @@
                         "value": "$domain"
                     },
                     {
+                        "name": "DIRECTORY_MANAGER_PASSWORD",
+                        "value": "$directory_manager_password"
+                    },
+                    {
                         "name": "KOLAB_SERVICE_PASSWORD",
                         "value": "$kolab_service_password"
+                    },
+                    {
+                        "name": "KOLAB_WEBADMIN_DATABASE_NAME",
+                        "value": "$kolab_webadmin_database_name"
+                    },
+                    {
+                        "name": "KOLAB_WEBADMIN_DATABASE_PASSWORD",
+                        "value": "$kolab_webadmin_database_password"
+                    },
+                    {
+                        "name": "KOLAB_WEBADMIN_DATABASE_USERNAME",
+                        "value": "$kolab_webadmin_database_username"
                     }
                 ]
             }

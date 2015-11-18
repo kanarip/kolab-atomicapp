@@ -16,24 +16,28 @@
                     "default": "kolab/roundcubemail"
                 },
                 {
-                    "name": "db_name",
-                    "description": "Database name"
+                    "name": "domain",
+                    "description": "Domain Name Space",
+                    "default": "docker.container"
                 },
                 {
-                    "name": "db_pass",
-                    "description": "Database password"
+                    "name": "kolab_roundcubemail_database_name",
+                    "description": "Database name",
+                    "default": "roundcubemail"
                 },
                 {
-                    "name": "db_user",
-                    "description": "Database user"
+                    "name": "kolab_roundcubemail_database_password",
+                    "description": "Database password",
+                    "default": "welcome123"
+                },
+                {
+                    "name": "kolab_roundcubemail_database_username",
+                    "description": "Database user",
+                    "default": "kolab"
                 },
                 {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password"
-                },
-                {
-                    "name": "ldap_host",
-                    "description": "LDAP Host"
                 }
             ],
             "artifacts": {
@@ -56,7 +60,7 @@
         },
         {
             "name": "kolab-roundcubemail-database",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
+            "source": "docker://kolab/roundcubemail-database"
         }
     ]
 }
