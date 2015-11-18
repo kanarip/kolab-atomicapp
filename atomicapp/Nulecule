@@ -8,12 +8,24 @@
     },
     "graph": [
         {
+            "name": "kolab-chwala",
+            "source": "docker://kolab/chwala-atomicapp"
+        },
+        {
             "name": "kolab-ext-mx-in",
             "source": "docker://kolab/ext-mx-in-atomicapp"
         },
         {
             "name": "kolab-ext-mx-out",
             "source": "docker://kolab/ext-mx-out-atomicapp"
+        },
+        {
+            "name": "kolab-freebusy",
+            "source": "docker://kolab/freebusy-atomicapp"
+        },
+        {
+            "name": "kolab-imap-mupdate",
+            "source": "docker://kolab/imap-mupdate-atomicapp"
         },
         {
             "name": "kolab-int-mx",
@@ -26,6 +38,10 @@
         {
             "name": "kolab-manticore",
             "source": "docker://kolab/manticore-atomicapp"
+        },
+        {
+            "name": "kolab-roundcubemail",
+            "source": "docker://kolab/roundcubemail-atomicapp"
         },
         {
             "name": "kolab-webadmin",
