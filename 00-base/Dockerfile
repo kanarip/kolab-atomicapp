@@ -15,7 +15,8 @@ RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         openldap-clients \
         strace \
         telnet \
-        traceroute && \
+        traceroute \
+        vim-enhanced && \
     yum clean all
 
 ADD /entrypoint.sh /entrypoint.sh
