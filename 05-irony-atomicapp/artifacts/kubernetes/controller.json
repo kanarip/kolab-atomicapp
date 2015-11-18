@@ -10,7 +10,7 @@
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-irony",
+            "name": "kolab-irony"
         },
         "template": {
             "metadata": {
