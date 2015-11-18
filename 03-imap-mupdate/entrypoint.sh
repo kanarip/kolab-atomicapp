@@ -12,6 +12,7 @@ sed -i -r \
     -e "s/^domain_base_dn = .*$/domain_base_dn = ou=Domains,dc=$(echo ${DOMAIN} | sed -e 's/\./,dc=/g')/g" \
     -e "s/^bind_dn = .*$/bind_dn = uid=kolab-service,ou=Special Users,dc=$(echo ${DOMAIN} | sed -e 's/\./,dc=/g')/g" \
     -e "s/^bind_pw = .*$/bind_pw = ${KOLAB_SERVICE_PASSWORD}/g" \
+    -e "s/^admin_password = .*$/admin_password = ${CYRUS_ADMIN_PASSWORD}/g" \
     -e "s/^service_bind_dn = .*$/service_bind_dn = uid=kolab-service,ou=Special Users,dc=$(echo ${DOMAIN} | sed -e 's/\./,dc=/g')/g" \
     -e "s/^service_bind_pw = .*$/service_bind_pw = ${KOLAB_SERVICE_PASSWORD}/g" \
     -e "s|^sql_uri = .*$|sql_uri = mysql://${KOLAB_WEBADMIN_DATABASE_USERNAME}:${KOLAB_WEBADMIN_DATABASE_PASSWORD}@${MARIADB_SERVICE_HOST}/${KOLAB_WEBADMIN_DATABASE_NAME}|g" \
@@ -24,7 +25,10 @@ sed -i -r \
     -e "s/%KOLAB_SERVICE_PASSWORD%/${KOLAB_SERVICE_PASSWORD}/g" \
     /etc/kolab/templates/imapd.conf.tpl
 
-setup-kolab imap
+cp /etc/kolab/kolab.conf /root/kolab.conf
+
+setup-kolab --config /root/kolab.conf imap
+
 killall -9 cyrus-master || :
 pkill -9 -u cyrus || :
 
