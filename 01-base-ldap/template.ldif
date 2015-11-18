@@ -1,0 +1,142 @@
+#
+# BEGIN COPYRIGHT BLOCK
+# This Program is free software; you can redistribute it and/or modify it under
+# the terms of the GNU General Public License as published by the Free Software
+# Foundation; version 2 of the License.
+# 
+# This Program is distributed in the hope that it will be useful, but WITHOUT
+# ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+# FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+# 
+# You should have received a copy of the GNU General Public License along with
+# this Program; if not, write to the Free Software Foundation, Inc., 59 Temple
+# Place, Suite 330, Boston, MA 02111-1307 USA.
+# 
+# In addition, as a special exception, Red Hat, Inc. gives You the additional
+# right to link the code of this Program with code not covered under the GNU
+# General Public License ("Non-GPL Code") and to distribute linked combinations
+# including the two, subject to the limitations in this paragraph. Non-GPL Code
+# permitted under this exception must only link to the code of this Program
+# through those well defined interfaces identified in the file named EXCEPTION
+# found in the source code files (the "Approved Interfaces"). The files of
+# Non-GPL Code may instantiate templates or use macros or inline functions from
+# the Approved Interfaces without causing the resulting work to be covered by
+# the GNU General Public License. Only Red Hat, Inc. may make changes or
+# additions to the list of Approved Interfaces. You must obey the GNU General
+# Public License in all respects for all of the Program code and other code used
+# in conjunction with the Program except the Non-GPL Code covered by this
+# exception. If you modify this file, you may extend this exception to your
+# version of the file, but you are not obligated to do so. If you do not wish to
+# provide this exception without modification, you must delete this exception
+# statement from your version and license this file solely under the GPL without
+# exception. 
+# 
+# 
+# Copyright (C) 2001 Sun Microsystems, Inc. Used by permission.
+# Copyright (C) 2005 Red Hat, Inc.
+# All rights reserved.
+# END COPYRIGHT BLOCK
+#
+#
+# Note: %rootdn% (Directory Manager) has all rights on every entry by nature.  
+# Thus, it is not needed to give any acis.  This template has several 
+# groupOfUniqueNames objects which MUST have uniqueMember.  At this moment,
+# there is no entry which could be a uniqueMember.  Just to satisfy the 
+# objectclass, set %rootdn% to uniqueMember of the objectclass.
+#
+dn: %ds_suffix%
+changetype: modify
+replace: aci
+aci: (targetattr = "carLicense || description || displayName || facsimileTelephoneNumber || homePhone || homePostalAddress || initials || jpegPhoto || l || labeledURI || mobile || o || pager || photo || postOfficeBox || postalAddress || postalCode || preferredDeliveryMethod || preferredLanguage || registeredAddress || roomNumber || secretary || seeAlso || st || street || telephoneNumber || telexNumber || title || userCertificate || userPassword || userSMIMECertificate || x500UniqueIdentifier || kolabDelegate || kolabInvitationPolicy || kolabAllowSMTPSender") (version 3.0; acl "Enable self write for common attributes"; allow (read,compare,search,write)(userdn = "ldap:///self");)
+aci: (targetattr = "*")(version 3.0; acl "Directory Administrators Group"; allow (all) (groupdn = "ldap:///cn=Directory Administrators,%(rootdn)s" or roledn = "ldap:///cn=kolab-admin,%ds_suffix%");)
+aci: (targetattr = "*")(version 3.0; acl "Configuration Administrators Group"; allow (all) groupdn="ldap:///cn=Configuration Administrators,ou=Groups,ou=TopologyManagement,o=NetscapeRoot";)
+aci: (targetattr = "*")(version 3.0; acl "Configuration Administrator"; allow (all) userdn="ldap:///uid=admin,ou=Administrators,ou=TopologyManagement,o=NetscapeRoot";)
+aci: (targetattr = "*")(version 3.0; acl "SIE Group"; allow (all) groupdn = "ldap:///cn=slapd-%hostname%,cn=389 Directory Server,cn=Server Group,cn=%hostname%.%domain%,ou=%domain%,o=NetscapeRoot";)
+aci: (targetattr != "userPassword")(version 3.0; acl "Search Access";allow (read,compare,search)(userdn = "ldap:///all");)
+
+dn: cn=kolab-admin,%ds_suffix%
+objectclass: top
+objectclass: ldapsubentry
+objectclass: nsroledefinition
+objectclass: nssimpleroledefinition
+objectclass: nsmanagedroledefinition
+cn: kolab-admin
+
+dn: cn=Directory Administrators, %ds_suffix%
+objectClass: top
+objectClass: groupofuniquenames
+cn: Directory Administrators
+uniqueMember: %rootdn%
+
+dn: ou=Domains, %ds_suffix%
+objectclass: top
+objectclass: organizationalunit
+ou: Domains
+
+dn: associateddomain=%domain%,ou=Domains,%ds_suffix%
+objectclass: top
+objectclass: domainrelatedobject
+associateddomain: %domain%
+
+dn: ou=Groups, %ds_suffix%
+objectclass: top
+objectclass: organizationalunit
+ou: Groups
+
+dn: ou=Resources, %ds_suffix%
+objectclass: top
+objectclass: organizationalunit
+ou: Resources
+
+dn: ou=Shared Folders, %ds_suffix%
+objectclass: top
+objectclass: organizationalunit
+ou: Shared Folders
+
+dn: ou=People, %ds_suffix%
+objectclass: top
+objectclass: organizationalunit
+ou: People
+
+dn: ou=Special Users,%ds_suffix%
+objectclass: top
+objectclass: organizationalUnit
+ou: Special Users
+description: Special Administrative Accounts
+
+dn: uid=cyrus-admin,ou=Special Users,%ds_suffix%
+objectclass: top
+objectclass: inetorgperson
+objectclass: organizationalperson
+objectclass: person
+uid: cyrus-admin
+givenname: Cyrus
+surname: Administrator
+cn: Cyrus Administrator
+userpassword: %cyrus_admin_password%
+
+dn: uid=kolab-service,ou=Special Users,%ds_suffix%
+objectclass: top
+objectclass: inetorgperson
+objectclass: organizationalperson
+objectclass: person
+uid: kolab-service
+givenname: Kolab
+surname: Service
+cn: Kolab Service
+userpassword: %kolab_service_password%
+nslookthroughlimit: -1
+nssizelimit: -1
+nstimelimit: -1
+nsidletimeout: -1
+
+dn: cn=config
+changetype: modify
+replace: nsslapd-allow-anonymous-access
+nsslapd-allow-anonymous-access: off
+-
+replace: nsslapd-accesslog-logging-enabled
+nsslapd-accesslog-logging-enabled: off
+-
+replace: nsslapd-auditlog-logging-enabled
+nsslapd-auditlog-logging-enabled: on

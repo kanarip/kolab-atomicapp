@@ -9,6 +9,13 @@ if echo "# test access" >> /etc/hosts || umount /etc/hosts 2>/dev/null ; then
     echo "${KOLAB_LDAP_MASTER_SERVICE_HOST} ${HOSTNAME}.${DOMAIN} ${HOSTNAME}" > /etc/hosts
 fi
 
+sed -i \
+    -e "s/%hostname%/${HOSTNAME}/g" \
+    -e "s/%domain%/${DOMAIN}/g" \
+    -e "s/%cyrus_admin_password%/${CYRUS_ADMIN_PASSWORD}/g" \
+    -e "s/%kolab_service_password%/${KOLAB_SERVICE_PASSWORD}/g" \
+    /usr/share/dirsrv/data/template.ldif
+
 cat >/tmp/setup-ds.inf <<EOF
 [General]
 FullMachineName = ${HOSTNAME}.${DOMAIN}
