@@ -10,7 +10,7 @@
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-syncroton",
+            "name": "kolab-syncroton"
         },
         "template": {
             "metadata": {

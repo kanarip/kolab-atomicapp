@@ -10,7 +10,7 @@
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-chwala",
+            "name": "kolab-chwala"
         },
         "template": {
             "metadata": {
