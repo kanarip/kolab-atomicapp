@@ -22,13 +22,11 @@
                 },
                 {
                     "name": "cyrus_admin_password",
-                    "description": "Cyrus Administrator Password",
-                    "default": "$cyrus_admin_password"
+                    "description": "Cyrus Administrator Password"
                 },
                 {
                     "name": "kolab_service_password",
-                    "description": "Kolab Service Password",
-                    "default": "$kolab_service_password"
+                    "description": "Kolab Service Password"
                 }
             ],
             "artifacts": {

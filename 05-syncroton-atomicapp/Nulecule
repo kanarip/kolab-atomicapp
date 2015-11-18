@@ -17,8 +17,7 @@
                 },
                 {
                     "name": "kolab_service_password",
-                    "description": "Kolab Service Password",
-                    "default": "$kolab_service_password"
+                    "description": "Kolab Service Password"
                 }
             ],
             "artifacts": {
