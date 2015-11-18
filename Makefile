@@ -15,13 +15,26 @@ docs:
 	make -C docs clean html || :
 
 pull:
+	docker pull centos:centos7 && \
+		docker tag -f docker.io/library/centos:centos7 centos:centos7
+	docker pull centos/mariadb && \
+		docker tag -f docker.io/centos/mariadb centos/mariadb
+	docker pull projectatomic/mariadb-centos7-atomicapp && \
+		docker tag -f docker.io/projectatomic/mariadb-centos7-atomicapp projectatomic/mariadb-centos7-atomicapp
+	docker pull projectatomic/atomicapp:latest && \
+		docker tag -f docker.io/projectatomic/atomicapp:latest projectatomic/atomicapp:latest
+	docker pull projectatomic/atomicapp:0.2.1 && \
+		docker tag -f docker.io/projectatomic/atomicapp:0.2.1 projectatomic/atomicapp:0.2.1
+	docker pull microwebapps/haproxy-frontend-atomicapp:latest && \
+		docker tag -f docker.io/microwebapps/haproxy-frontend-atomicapp:latest microwebapps/haproxy-frontend-atomicapp:latest
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
-		docker pull kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g') || : ; \
+		docker pull kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') && \
+			docker tag -f docker.io/kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') || : ; \
 	done
 
 push:
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
-		docker push kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g') ; \
+		docker push kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') ; \
 	done
 
 run: clean all
