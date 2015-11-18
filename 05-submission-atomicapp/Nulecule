@@ -2,9 +2,9 @@
     "specversion": "0.0.2",
     "id": "kolab-submission",
     "metadata": {
-        "name": "Kolab Internal IMAP Frontend",
-        "appversion": "2.5.6",
-        "description": "Used for internal IMAP connections"
+        "name": "Kolab Message Submission Agent",
+        "appversion": "development",
+        "description": "Kolab Message Submission Agent"
     },
     "graph": [
         {
@@ -22,12 +22,12 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/service.json",
                     "file://artifacts/kubernetes/controller.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {
@@ -36,15 +36,6 @@
                         ]
                     }
                 ]
-            }
-        }
-    ],
-    "requirements": [
-        {
-            "persistentVolume": {
-                "name": "kolab-submission-data",
-                "accessMode": "ReadWrite",
-                "size": 4
             }
         }
     ]

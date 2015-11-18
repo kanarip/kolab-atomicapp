@@ -8,6 +8,10 @@
     },
     "graph": [
         {
+            "name": "kolab-wallace",
+            "source": "docker://kolab/wallace-atomicapp"
+        },
+        {
             "name": "kolab-int-mx",
             "params": [
                 {

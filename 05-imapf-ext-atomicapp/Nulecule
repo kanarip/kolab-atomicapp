@@ -2,9 +2,9 @@
     "specversion": "0.0.2",
     "id": "kolab-imapf-ext",
     "metadata": {
-        "name": "Kolab Internal IMAP Frontend",
-        "appversion": "2.5.6",
-        "description": "Used for internal IMAP connections"
+        "name": "Kolab External IMAP Frontend",
+        "appversion": "development",
+        "description": "Used for external IMAP connections"
     },
     "graph": [
         {
@@ -27,12 +27,12 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/service.json",
                     "file://artifacts/kubernetes/controller.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

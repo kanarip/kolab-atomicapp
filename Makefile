@@ -31,6 +31,9 @@ run: clean all
 			-e 's/_password = None/_password = welcome123/g' \
 			-e 's/^mongodb_database = None/mongodb_database = manticore/g' \
 			-e 's/^mongodb_username = None/mongodb_username = manticore/g' \
+			-e 's/^db_user = None/db_user = kolab/g' \
+			-e 's/^db_name = None/db_name = kolab/g' \
+			-e 's/^db_pass = None/db_pass = welcome123/g' \
 			answers.conf.sample | sudo tee answers.conf && \
 		sudo atomicapp --verbose -a /var/lib/atomicapp/kolab-atomicapp/answers.conf run kolab/atomicapp
 

@@ -1,6 +1,6 @@
 {
     "specversion": "0.0.2",
-    "id": "manticore-atomicapp",
+    "id": "manticore",
     "metadata": {
         "name": "Manticore Server",
         "appversion": "1.0.0",
@@ -8,11 +8,11 @@
     },
     "graph": [
         {
-            "name": "manticore-mongodb-atomicapp",
+            "name": "manticore-mongodb",
             "source": "docker://kolab/mongodb-centos7-atomicapp"
         },
         {
-            "name": "manticore-atomicapp",
+            "name": "manticore",
             "params": [
                 {
                     "name": "image",

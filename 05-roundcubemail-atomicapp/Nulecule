@@ -37,13 +37,13 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/controller.json",
                     "file://artifacts/kubernetes/pod.json",
                     "file://artifacts/kubernetes/service.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

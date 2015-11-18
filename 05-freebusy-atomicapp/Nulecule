@@ -37,13 +37,13 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/controller.json",
                     "file://artifacts/kubernetes/pod.json",
                     "file://artifacts/kubernetes/service.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {
@@ -56,24 +56,7 @@
         },
         {
             "name": "kolab-freebusy-database",
-            "source": "docker://projectatomic/mariadb-centos7-atomicapp",
-            "params": [
-                {
-                    "name": "db_name",
-                    "description": "Database name",
-                    "value": "freebusy"
-                },
-                {
-                    "name": "db_pass",
-                    "description": "Database password",
-                    "value": "$kolab_freebusy_database_password"
-                },
-                {
-                    "name": "db_user",
-                    "description": "Database user",
-                    "value": "$kolab_freebusy_database_username"
-                }
-            ]
+            "source": "docker://projectatomic/mariadb-centos7-atomicapp"
         }
     ]
 }

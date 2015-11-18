@@ -3,7 +3,7 @@
     "id": "kolab-imapb",
     "metadata": {
         "name": "Kolab IMAP Backend",
-        "appversion": "2.5.6",
+        "appversion": "development",
         "description": "Cyrus IMAP Backend Container"
     },
     "graph": [
@@ -27,12 +27,12 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/service.json",
                     "file://artifacts/kubernetes/controller.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {
@@ -41,15 +41,6 @@
                         ]
                     }
                 ]
-            }
-        }
-    ],
-    "requirements": [
-        {
-            "persistentVolume": {
-                "name": "kolab-imapb-data",
-                "accessMode": "ReadWrite",
-                "size": 4
             }
         }
     ]

@@ -26,6 +26,10 @@
         {
             "name": "kolab-manticore",
             "source": "docker://kolab/manticore-atomicapp"
+        },
+        {
+            "name": "kolab-webadmin",
+            "source": "docker://kolab/webadmin-atomicapp"
         }
     ]
 }

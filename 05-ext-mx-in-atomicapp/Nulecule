@@ -1,6 +1,6 @@
 {
     "specversion": "0.0.2",
-    "id": "kolab-ext-mx-in-atomicapp",
+    "id": "kolab-ext-mx-in",
     "metadata": {
         "name": "Kolab External Mail Exchanger for Inbound Traffic",
         "appversion": "1.0.0",

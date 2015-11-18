@@ -3,7 +3,7 @@
     "id": "kolab-syncroton",
     "metadata": {
         "name": "Kolab ActiveSync Interface",
-        "appversion": "14.0",
+        "appversion": "development",
         "description": "ActiveSync Interface"
     },
     "graph": [
@@ -22,12 +22,12 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/service.json",
                     "file://artifacts/kubernetes/controller.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {

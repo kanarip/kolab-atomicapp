@@ -48,14 +48,5 @@
                 ]
             }
         }
-    ],
-    "requirements": [
-        {
-            "persistentVolume": {
-                "name": "kolab-wallace-data",
-                "accessMode": "ReadWrite",
-                "size": 4
-            }
-        }
     ]
 }
