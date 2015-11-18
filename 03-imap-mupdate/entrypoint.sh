@@ -17,6 +17,13 @@ sed -i -r \
     -e "s|^sql_uri = .*$|sql_uri = mysql://${KOLAB_WEBADMIN_DATABASE_USERNAME}:${KOLAB_WEBADMIN_DATABASE_PASSWORD}@${MARIADB_SERVICE_HOST}/${KOLAB_WEBADMIN_DATABASE_NAME}|g" \
     /etc/kolab/kolab.conf
 
+sed -i -r \
+    -e "s/%CYRUS_ADMIN_PASSWORD%/${CYRUS_ADMIN_PASSWORD}/g" \
+    -e "s/%KOLAB_IMAP_MUPDATE_SERVICE_HOST%/${KOLAB_IMAP_MUPDATE_SERVICE_HOST}/g" \
+    -e "s/%KOLAB_IMAP_MUPDATE_SERVICE_PORT%/${KOLAB_IMAP_MUDPATE_SERVICE_PORT}/g" \
+    -e "s/%KOLAB_SERVICE_PASSWORD%/${KOLAB_SERVICE_PASSWORD}/g" \
+    /etc/kolab/templates/imapd.conf.tpl
+
 setup-kolab imap
 killall -9 cyrus-master || :
 pkill -9 -u cyrus || :

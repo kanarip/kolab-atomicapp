@@ -1,0 +1,38 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-imap-mupdate",
+    "metadata": {
+        "name": "kolab-imap-mupdate",
+        "labels": {
+            "name": "kolab-imap-mupdate"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-imap-mupdate",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 3905
+                    }
+                ],
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
+                        "name": "CYRUS_ADMIN_PASSWORD",
+                        "value": "$cyrus_admin_password"
+                    },
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
+                ]
+            }
+        ]
+    }
+}
