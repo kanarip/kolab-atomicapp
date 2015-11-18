@@ -3,8 +3,8 @@
     "id": "kolab-chwala",
     "metadata": {
         "name": "Kolab File Cloud Interface",
-        "appversion": "14.0",
-        "description": "File Clout Interface"
+        "appversion": "development",
+        "description": "File Cloud Interface"
     },
     "graph": [
         {
@@ -22,12 +22,12 @@
                 }
             ],
             "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
                 "kubernetes": [
                     "file://artifacts/kubernetes/service.json",
                     "file://artifacts/kubernetes/controller.json"
-                ],
-                "docker": [
-                    "file://artifacts/docker/run-pod"
                 ],
                 "openshift": [
                     {
