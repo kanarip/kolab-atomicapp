@@ -1,5 +1,16 @@
 #!/bin/bash
 
+. /functions.sh
+
+check_vars \
+    DOMAIN \
+    HOSTNAME \
+    CYRUS_ADMIN_PASSWORD \
+    KOLAB_SERVICE_PASSWORD \
+    ADMIN_PASSWORD \
+    DIRECTORY_MANAGER_PASSWORD \
+    || exit 1
+
 if [ -z "${KOLAB_LDAP_MASTER_SERVICE_HOST}" ]; then
     export KOLAB_LDAP_MASTER_SERVICE_HOST=$(ip a sh dev $(route -n | grep ^0.0.0.0 | awk '{print $8}') | grep "    inet " | awk '{print $2}' | awk -F'/' '{print $1}')
 fi
@@ -31,7 +42,7 @@ SlapdConfigForMC = Yes
 UseExistingMC = 0
 ServerPort = 389
 ServerIdentifier = ldap
-Suffix = dc=$(echo ${DOMAIN} | sed -e 's/\./,dc=/g')
+Suffix = $(domain_to_root_dn ${DOMAIN})
 RootDN = cn=Directory Manager
 RootDNPwd = ${DIRECTORY_MANAGER_PASSWORD}
 ds_bename = $(echo ${DOMAIN} | sed -e 's/\./_/g')
@@ -55,18 +66,9 @@ if [ ! -d "/etc/dirsrv/slapd-ldap/" ]; then
     fi
 fi
 
-dirs=(
-        /etc/dirsrv/
-        /etc/kolab/
-        /var/lib/dirsrv/
-    )
-
-for dir in ${dirs[@]}; do
-    if [ ! -d "/data$(dirname ${dir})" ]; then
-        mkdir -p "/data$(dirname ${dir})"
-        mv -v ${dir} "/data$(dirname ${dir})"
-        ln -svf "/data${dir}" $(dirname ${dir})/$(basename ${dir})
-    fi
-done
+persist \
+    /etc/dirsrv/ \
+    /etc/kolab/ \
+    /var/lib/dirsrv/
 
 exec "$@"

@@ -1,5 +1,13 @@
 #!/bin/bash
-set -e
+
+. /functions.sh
+
+check_vars \
+    MONGODB_DATABASE \
+    MONGODB_PASSWORD \
+    MONGODB_SERVICE_HOST \
+    MONGODB_USERNAME \
+    || exit 1
 
 sed -i \
     -e "s/email: 'admin@admin.com',/email: '${MONGODB_ADMIN_EMAIL:-admin@admin.com}',/g" \
