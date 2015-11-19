@@ -20,6 +20,7 @@ RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         vim-enhanced && \
     yum clean all
 
+ADD /functions.sh /functions.sh
 ADD /entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 ENTRYPOINT [ "/entrypoint.sh" ]
