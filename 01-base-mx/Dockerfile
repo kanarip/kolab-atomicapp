@@ -4,3 +4,5 @@ RUN yum -y install \
         postfix \
         postfix-kolab && \
     yum clean all
+
+VOLUME [ "/data" ]
