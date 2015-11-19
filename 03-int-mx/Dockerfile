@@ -1,7 +1,5 @@
 FROM kolab/base-mx:latest
 
-VOLUME [ "/var/spool/postfix" ]
-
 EXPOSE 25 587
 
 ADD /entrypoint.sh /entrypoint.sh
