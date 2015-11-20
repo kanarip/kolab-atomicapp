@@ -24,6 +24,10 @@
                         "value": "$cyrus_admin_password"
                     },
                     {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
                         "name": "KOLAB_SERVICE_PASSWORD",
                         "value": "$kolab_service_password"
                     }

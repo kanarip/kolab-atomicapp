@@ -24,6 +24,11 @@
                     "description": "Cyrus Administrator Password"
                 },
                 {
+                    "name": "domain",
+                    "description": "Domain Name Space",
+                    "default": "docker.container"
+                },
+                {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password"
                 }
