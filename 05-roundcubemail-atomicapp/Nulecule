@@ -27,8 +27,7 @@
                 },
                 {
                     "name": "kolab_roundcubemail_database_password",
-                    "description": "Database password",
-                    "default": "welcome123"
+                    "description": "Database password"
                 },
                 {
                     "name": "kolab_roundcubemail_database_username",
