@@ -11,6 +11,7 @@ RUN rpm --import https://ssl.kolabsys.com/community.asc && \
     yum -y install yum-plugin-priorities && \
     yum -y install \
         bind-utils \
+        lsof \
         net-tools \
         openldap-clients \
         psmisc \
