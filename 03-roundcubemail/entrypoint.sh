@@ -9,9 +9,9 @@ check_vars \
     KOLAB_LDAP_MASTER_SERVICE_HOST \
     KOLAB_LDAP_MASTER_SERVICE_PORT \
     KOLAB_SERVICE_PASSWORD \
-    KOLAB_WEBADMIN_DATABASE_USERNAME \
-    KOLAB_WEBADMIN_DATABASE_PASSWORD \
-    KOLAB_WEBADMIN_DATABASE_NAME \
+    KOLAB_ROUNDCUBEMAIL_DATABASE_USERNAME \
+    KOLAB_ROUNDCUBEMAIL_DATABASE_PASSWORD \
+    KOLAB_ROUNDCUBEMAIL_DATABASE_NAME \
     || exit 1
 
 if [ ! -z "${MARIADB_SERVICE_HOST}" ]; then
@@ -29,15 +29,14 @@ sed -i -r \
     -e "s/^bind_pw = .*$/bind_pw = ${KOLAB_SERVICE_PASSWORD}/g" \
     -e "s/^service_bind_dn = .*$/service_bind_dn = uid=kolab-service,ou=Special Users,$(domain_to_root_dn ${DOMAIN})/g" \
     -e "s/^service_bind_pw = .*$/service_bind_pw = ${KOLAB_SERVICE_PASSWORD}/g" \
-    -e "s|^sql_uri = .*$|sql_uri = mysql://${KOLAB_WEBADMIN_DATABASE_USERNAME}:${KOLAB_WEBADMIN_DATABASE_PASSWORD}@${db_host}/${KOLAB_WEBADMIN_DATABASE_NAME}|g" \
     /etc/kolab/kolab.conf
 
 export TERM=xterm
 tables=$(mysql \
         -h ${db_host} \
-        -u ${KOLAB_WEBADMIN_DATABASE_USERNAME} \
-        --password=${KOLAB_WEBADMIN_DATABASE_PASSWORD} \
-        ${KOLAB_WEBADMIN_DATABASE_NAME} \
+        -u ${KOLAB_ROUNDCUBEMAIL_DATABASE_USERNAME} \
+        --password=${KOLAB_ROUNDCUBEMAIL_DATABASE_PASSWORD} \
+        ${KOLAB_ROUNDCUBEMAIL_DATABASE_NAME} \
         -e 'show tables;' \
         2>/dev/null
     )
@@ -45,10 +44,10 @@ tables=$(mysql \
 if [ -z "${tables}" ]; then
     mysql \
         -h ${db_host} \
-        -u ${KOLAB_WEBADMIN_DATABASE_USERNAME} \
-        --password=${KOLAB_WEBADMIN_DATABASE_PASSWORD} \
-        ${KOLAB_WEBADMIN_DATABASE_NAME} \
-        < /usr/share/doc/kolab-webadmin-*/kolab_wap.sql
+        -u ${KOLAB_ROUNDCUBEMAIL_DATABASE_USERNAME} \
+        --password=${KOLAB_ROUNDCUBEMAIL_DATABASE_PASSWORD} \
+        ${KOLAB_ROUNDCUBEMAIL_DATABASE_NAME} \
+        < /usr/share/doc/roundcubemail-*/SQL/mysql.initial.sql
 fi
 
 exec "$@"
