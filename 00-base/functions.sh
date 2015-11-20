@@ -32,8 +32,8 @@ function persist() {
             mkdir -p "/data$(dirname $1)"
         fi
 
-        mv -v $1 "/data$(dirname $1)/."
-        ln -svf "/data$1" "$(dirname $1)/$(basename $1)"
+        echo -n "mv: "; mv -v $1 "/data$(dirname $1)/."
+        echo -n "ln: "; ln -svf "/data$1" "$(dirname $1)/$(basename $1)"
 
         shift
     done
