@@ -61,7 +61,7 @@ clean:
 		kubectl delete pod $${pod} 2>/dev/null || : ; \
 	done
 	for container in $$(docker ps -q); do \
-		docker kill --signal="SIGKILL" $${container} || : ; \
+		docker kill --signal="SIGKILL" $${container} 2>/dev/null || : ; \
 	done
 	for container in $$(docker ps -aq); do \
 		docker rm $${container} ; \
