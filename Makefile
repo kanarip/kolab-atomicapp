@@ -48,7 +48,7 @@ run: clean all
 			-e 's/^db_name = None/db_name = kolab/g' \
 			-e 's/^db_pass = None/db_pass = welcome123/g' \
 			answers.conf.sample | sudo tee answers.conf && \
-		sudo atomicapp --verbose -a /var/lib/atomicapp/kolab-atomicapp/answers.conf run kolab/atomicapp
+		sudo atomicapp --verbose run -a /var/lib/atomicapp/kolab-atomicapp/answers.conf kolab/atomicapp
 
 clean:
 	for replicationcontroller in $$(kubectl get --no-headers=true replicationcontrollers | awk '{print $$1}' | grep -v kubernetes); do \
@@ -77,6 +77,16 @@ really-clean:
 			docker rmi -f $${image} 2>/dev/null || : ; \
 		done ; \
 	done
+	for service in kubelet kube-apiserver kube-controller-manager kube-proxy etcd; do \
+		sudo systemctl stop $${service} ; \
+	done
+	sudo rm -rf /var/lib/kubelet/pods/*
+	for service in kubelet kube-controller-manager kube-proxy etcd; do \
+		sudo systemctl start $${service} ; \
+	done
+	sudo systemctl start kube-apiserver
+
+restart:
 	for service in kubelet kube-apiserver kube-controller-manager kube-proxy etcd; do \
 		sudo systemctl stop $${service} ; \
 	done
