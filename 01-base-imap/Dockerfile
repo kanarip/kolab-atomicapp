@@ -7,4 +7,4 @@ RUN yum -y install \
 
 EXPOSE 110 143 993 995 4190
 
-CMD [ "/usr/lib/cyrus-imapd/cyrus-master", "-D" ]
+CMD [ "/usr/lib/cyrus-imapd/cyrus-master", "-L", "/dev/null" ]
