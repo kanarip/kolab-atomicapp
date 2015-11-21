@@ -1,0 +1,37 @@
+{
+    "kind": "ReplicationController",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-ext-mx-in",
+        "labels": {
+            "name": "kolab-ext-mx-in"
+        }
+    },
+    "spec": {
+        "replicas": 1,
+        "selector": {
+            "name": "kolab-ext-mx-in"
+        },
+        "template": {
+            "metadata": {
+                "labels": {
+                    "name": "kolab-ext-mx-in"
+                }
+            },
+            "spec": {
+                "containers": [
+                    {
+                        "name": "kolab-ext-mx-in",
+                        "image": "kolab/guam",
+                        "ports": [
+                            {
+                                "name": "smtp",
+                                "containerPort": 25
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}
