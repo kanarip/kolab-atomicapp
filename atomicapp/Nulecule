@@ -32,6 +32,18 @@
             "source": "docker://kolab/irony-atomicapp"
         },
         {
+            "name": "kolab-imapb",
+            "source": "docker://kolab/imapb-atomicapp"
+        },
+        {
+            "name": "kolab-imapf-ext",
+            "source": "docker://kolab/imapf-ext-atomicapp"
+        },
+        {
+            "name": "kolab-imapf-int",
+            "source": "docker://kolab/imapf-int-atomicapp"
+        },
+        {
             "name": "kolab-imap-mupdate",
             "source": "docker://kolab/imap-mupdate-atomicapp"
         },
