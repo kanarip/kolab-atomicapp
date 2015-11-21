@@ -5,7 +5,7 @@ RUN yum -y install \
         clamav && \
     yum clean all
 
-VOLUME [ "/var/spool/amavisd" ]
+VOLUME [ "/data" ]
 
 EXPOSE 10024
 

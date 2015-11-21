@@ -1,8 +1,18 @@
 #!/bin/bash
 
-su -s /bin/bash - amavis -c 'nohup /usr/sbin/clamd -c /etc/clamd.d/amavisd.conf --pid /var/run/amavisd/clamd.pid &'
+. /functions.sh
 
-env
+check_var KOLAB_EXT_MX_IN_SERVICE_HOST || check_var KOLAB_EXT_MX_OUT_SERVICE_HOST || exit 1
+
+check_vars \
+    DOMAIN \
+    KOLAB_ROLE \
+    || exit 1
+
+persist \
+    /var/spool/amavisd/
+
+su -s /bin/bash - amavis -c 'nohup /usr/sbin/clamd -c /etc/clamd.d/amavisd.conf --pid /var/run/amavisd/clamd.pid &'
 
 if [ -z "${DOMAIN}" -o "${DOMAIN}" == "" ]; then
     DOMAIN="docker.container"
