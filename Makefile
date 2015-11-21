@@ -90,10 +90,11 @@ restart:
 	for service in kubelet kube-apiserver kube-controller-manager kube-proxy etcd; do \
 		sudo systemctl stop $${service} ; \
 	done
-	sudo rm -rf /var/lib/kubelet/pods/*
-	for service in kubelet kube-controller-manager kube-proxy etcd; do \
+	for service in kubelet kube-apiserver kube-controller-manager kube-proxy etcd; do \
 		sudo systemctl start $${service} ; \
 	done
-	sudo systemctl start kube-apiserver
+	for service in kubelet kube-apiserver kube-controller-manager kube-proxy etcd; do \
+		sudo systemctl status $${service} || sudo systemctl restart $${service}; \
+	done
 
 .PHONY: all docs push
