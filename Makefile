@@ -89,4 +89,7 @@ restart:
 		sudo systemctl status $${service} || sudo systemctl restart $${service}; \
 	done
 
+%:
+	docker build -t kolab/$@ *-$@
+
 .PHONY: all docs push
