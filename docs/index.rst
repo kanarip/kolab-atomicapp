@@ -41,7 +41,7 @@ sake of de-duplication when deploying.
             subgraph cluster_imap {
                     color = white;
 
-                    "kolab/imap-prx";
+                    "kolab/guam";
                     "kolab/imapf-ext";
                     "kolab/imapf-int";
                     "kolab/imap-mupdate";
@@ -97,7 +97,7 @@ sake of de-duplication when deploying.
                     "kolab/asav-out" [dir=back];
 
             "kolab/base-imap" ->
-                    "kolab/imap-prx",
+                    "kolab/guam",
                     "kolab/imapf-int",
                     "kolab/imapf-ext",
                     "kolab/imap-mupdate",
@@ -161,7 +161,7 @@ Container Connection Model
             subgraph cluster_imap {
                     color = white;
 
-                    "kolab/imap-prx";
+                    "kolab/guam";
                     "kolab/imapf-ext";
                     "kolab/imapf-int";
                     "kolab/imap-mupdate";
@@ -240,8 +240,8 @@ Container Connection Model
             "kolab/imapf-int" -> "kolab/imapb"          [label="(21)"];
             "kolab/imapf-int" -> "kolab/ldap-slave"     [label="(22)"];
 
-            "kolab/imap-prx" -> "kolab/imapf-ext"       [label="(26)"];
-            "kolab/imap-prx" -> "kolab/ldap-slave"      [label="(27)"];
+            "kolab/guam" -> "kolab/imapf-ext"       [label="(26)"];
+            "kolab/guam" -> "kolab/ldap-slave"      [label="(27)"];
 
             "kolab/int-mx" -> "kolab/ext-mx-out"        [label="(28)"];
             "kolab/int-mx" -> "kolab/imapb"             [label="(29)"];
@@ -280,7 +280,7 @@ Container Connection Model
 
             "External SMTP Servers" -> "kolab/ext-mx-in"[label="(56)"];
             "User / Client" -> "kolab/http-prx"         [label="(57)"];
-            "User / Client" -> "kolab/imap-prx"         [label="(58)"];
+            "User / Client" -> "kolab/guam"         [label="(58)"];
             "User / Client" -> "kolab/submission"       [label="(59)"];
         }
 
@@ -335,9 +335,9 @@ Container Connection Model
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
     | 22 | kolab/imapf-int     | kolab/...                               |      ??/tcp |                       |
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
-    | 26 | kolab/imap-prx      | kolab/...                               |      ??/tcp |                       |
+    | 26 | kolab/guam          | kolab/...                               |      ??/tcp |                       |
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
-    | 27 | kolab/imap-prx      | kolab/...                               |      ??/tcp |                       |
+    | 27 | kolab/guam          | kolab/...                               |      ??/tcp |                       |
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
     | 28 | kolab/int-mx        | kolab/...                               |      ??/tcp |                       |
     +----+---------------------+-----------------------------------------+-------------+-----------------------+
