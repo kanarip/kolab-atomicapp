@@ -1,0 +1,24 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "id": "kolab-guam",
+    "metadata": {
+        "name": "kolab-guam",
+        "labels": {
+            "name": "kolab-guam"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-guam",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 143
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -25,24 +25,12 @@
                         "image": "kolab/guam",
                         "ports": [
                             {
-                                "name": "pop",
-                                "containerPort": 110
-                            },
-                            {
                                 "name": "imap",
                                 "containerPort": 143
                             },
                             {
                                 "name": "imaps",
                                 "containerPort": 993
-                            },
-                            {
-                                "name": "pops",
-                                "containerPort": 995
-                            },
-                            {
-                                "name": "managesieve",
-                                "containerPort": 4190
                             }
                         ]
                     }

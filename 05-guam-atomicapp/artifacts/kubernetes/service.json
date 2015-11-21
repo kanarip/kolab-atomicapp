@@ -10,11 +10,6 @@
     "spec": {
         "ports": [
             {
-                "name": "pop",
-                "port": 110,
-                "targetPort": 110
-            },
-            {
                 "name": "imap",
                 "port": 143,
                 "targetPort": 143
@@ -23,16 +18,6 @@
                 "name": "imaps",
                 "port": 993,
                 "targetPort": 993
-            },
-            {
-                "name": "pops",
-                "port": 995,
-                "targetPort": 995
-            },
-            {
-                "name": "managesieve",
-                "port": 4190,
-                "targetPort": 4190
             }
         ],
         "selector": {
