@@ -1,4 +1,4 @@
-FROM kolab/base-imap:latest
+FROM kolab/base:latest
 
 RUN yum -y install \
         --disablerepo=Kolab_Development \
