@@ -24,6 +24,10 @@
             "source": "docker://kolab/freebusy-atomicapp"
         },
         {
+            "name": "kolab-guam",
+            "source": "docker://kolab/guam-atomicapp"
+        },
+        {
             "name": "kolab-irony",
             "source": "docker://kolab/irony-atomicapp"
         },

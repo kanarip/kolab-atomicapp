@@ -2,9 +2,9 @@
     "kind": "Service",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-imap-prx",
+        "name": "kolab-guam",
         "labels": {
-            "name": "kolab-imap-prx"
+            "name": "kolab-guam"
         }
     },
     "spec": {
@@ -36,7 +36,7 @@
             }
         ],
         "selector": {
-            "name": "kolab-imap-prx"
+            "name": "kolab-guam"
         },
         "type": "LoadBalancer"
     }

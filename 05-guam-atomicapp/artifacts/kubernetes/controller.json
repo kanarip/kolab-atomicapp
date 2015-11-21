@@ -2,27 +2,27 @@
     "kind": "ReplicationController",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-imap-prx",
+        "name": "kolab-guam",
         "labels": {
-            "name": "kolab-imap-prx"
+            "name": "kolab-guam"
         }
     },
     "spec": {
         "replicas": 1,
         "selector": {
-            "name": "kolab-imap-prx"
+            "name": "kolab-guam"
         },
         "template": {
             "metadata": {
                 "labels": {
-                    "name": "kolab-imap-prx"
+                    "name": "kolab-guam"
                 }
             },
             "spec": {
                 "containers": [
                     {
-                        "name": "kolab-imap-prx",
-                        "image": "kolab/imap-prx",
+                        "name": "kolab-guam",
+                        "image": "kolab/guam",
                         "ports": [
                             {
                                 "name": "pop",
