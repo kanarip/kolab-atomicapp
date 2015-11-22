@@ -13,6 +13,7 @@ RUN rpm --import https://ssl.kolabsys.com/community.asc && \
         bind-utils \
         lsof \
         net-tools \
+        nmap-ncat \
         openldap-clients \
         psmisc \
         strace \
