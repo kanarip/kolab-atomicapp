@@ -1,17 +1,17 @@
 {
     "kind": "Pod",
     "apiVersion": "v1",
-    "id": "kolab-guam",
+    "id": "kolab-imapf-ext",
     "metadata": {
-        "name": "kolab-guam",
+        "name": "kolab-imapf-ext",
         "labels": {
-            "name": "kolab-guam"
+            "name": "kolab-imapf-ext"
         }
     },
     "spec": {
         "containers": [
             {
-                "name": "kolab-guam",
+                "name": "kolab-imapf-ext",
                 "image": "$image",
                 "ports": [
                     {
