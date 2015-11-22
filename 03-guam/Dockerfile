@@ -1,7 +1,6 @@
 FROM kolab/base:latest
 
 RUN yum -y install \
-        --disablerepo=Kolab_Development \
         erlang-rebar \
         git \
         make && \
