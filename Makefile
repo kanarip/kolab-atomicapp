@@ -86,7 +86,7 @@ restart:
 		sudo systemctl start $${service} ; \
 	done
 	for service in kubelet kube-apiserver kube-scheduler kube-controller-manager kube-proxy etcd; do \
-		sudo systemctl status $${service} || sudo systemctl restart $${service}; \
+		sudo systemctl status $${service} >/dev/null 2>&1 || sudo systemctl restart $${service}; \
 	done
 
 %:
