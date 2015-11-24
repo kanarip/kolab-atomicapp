@@ -17,13 +17,11 @@
                 },
                 {
                     "name": "cyrus_admin_password",
-                    "description": "Cyrus Administrator Password",
-                    "default": "$cyrus_admin_password"
+                    "description": "Cyrus Administrator Password"
                 },
                 {
                     "name": "kolab_service_password",
-                    "description": "Kolab Service Password",
-                    "default": "$kolab_service_password"
+                    "description": "Kolab Service Password"
                 }
             ],
             "artifacts": {
@@ -31,8 +29,8 @@
                     "file://artifacts/docker/run-pod"
                 ],
                 "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                    "file://artifacts/kubernetes/controller.json"
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [
                     {
