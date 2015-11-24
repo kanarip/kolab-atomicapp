@@ -34,6 +34,20 @@
                         "name": "managesieve",
                         "containerPort": 4190
                     }
+                ],
+                "env": [
+                    {
+                        "name": "DOMAIN",
+                        "value": "$domain"
+                    },
+                    {
+                        "name": "CYRUS_ADMIN_PASSWORD",
+                        "value": "$cyrus_admin_password"
+                    },
+                    {
+                        "name": "KOLAB_SERVICE_PASSWORD",
+                        "value": "$kolab_service_password"
+                    }
                 ]
             }
         ]
