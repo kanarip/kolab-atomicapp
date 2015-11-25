@@ -16,6 +16,9 @@
                 "ports": [
                     {
                         "containerPort": 143
+                    },
+                    {
+                        "containerPort": 993
                     }
                 ]
             }

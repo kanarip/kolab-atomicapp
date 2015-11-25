@@ -22,7 +22,7 @@
                 "containers": [
                     {
                         "name": "kolab-guam",
-                        "image": "kolab/guam",
+                        "image": "$image",
                         "ports": [
                             {
                                 "name": "imap",
