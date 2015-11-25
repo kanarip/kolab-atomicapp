@@ -1,0 +1,23 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-jmap-proxy",
+        "labels": {
+            "name": "kolab-jmap-proxy"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-jmap-proxy",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 80
+                    m
+                ]
+            }
+        ]
+    }
+}

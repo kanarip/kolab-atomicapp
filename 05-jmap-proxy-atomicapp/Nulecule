@@ -1,0 +1,37 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-jmap-proxy",
+    "metadata": {
+        "name": "JMAP Proxy",
+        "appversion": "development",
+        "description": "JMAP Proxy"
+    },
+    "graph": [
+        {
+            "name": "kolab-jmap-proxy",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/jmap-proxy"
+                }
+            ],
+            "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
+                ]
+            }
+        }
+    ]
+}

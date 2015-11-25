@@ -1,0 +1,23 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-jmap-proxy",
+        "labels": {
+            "name": "kolab-jmap-proxy"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "http",
+                "port": 80,
+                "targetPort": 80
+            }
+        ],
+        "selector": {
+            "name": "kolab-jmap-proxy"
+        },
+        "type": "LoadBalancer"
+    }
+}
