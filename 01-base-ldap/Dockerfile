@@ -16,7 +16,7 @@ ADD /template.ldif /usr/share/dirsrv/data/template.ldif
 
 RUN mkdir -p /run/lock
 RUN ln -sf /bin/true /sbin/semanage
-RUN ln -sf /bin/true bin/systemctl
+RUN ln -sf /bin/true /bin/systemctl
 
 VOLUME [ "/data" ]
 
