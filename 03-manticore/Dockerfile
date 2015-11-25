@@ -1,24 +1,20 @@
-FROM kolab/base:latest
+FROM kolab/base-nodejs:latest
 
-RUN yum -y install \
-        bzip2 \
-        git \
-        gcc \
-        libjpeg-turbo-utils \
-        libpng-devel \
-        make \
-        npm \
-        tar && \
-    yum clean all
+MAINTAINER Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
 
-RUN npm update -g npm node-gyp
-RUN npm install -g bower grunt-cli phantomjs
+RUN npm install -g \
+        grunt-cli \
+        phantomjs && \
+    rm -rf /root/.npm/
 
 WORKDIR /var/www/
 RUN git clone https://git.kolab.org/diffusion/M/manticore.git /var/www/manticore.git/
 
 WORKDIR /var/www/manticore.git/
-RUN npm install
+RUN npm install && \
+    npm dedupe && \
+    rm -rf /root/.npm/
+
 RUN bower install --allow-root
 RUN grunt build
 

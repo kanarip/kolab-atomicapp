@@ -1,30 +1,36 @@
-FROM docker.io/library/centos:centos7
+FROM kolab/base-nodejs:latest
 
 MAINTAINER Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
 
-RUN yum -y install \
-        epel-release && \
-    yum -y install \
-        git \
-        make \
-        npm \
-        ruby-devel \
-        rubygem-bundler && \
-    yum clean all
+RUN npm update -g \
+        ember-cli && \
+    rm -rf /root/.npm/
 
-RUN npm install -g \
-        bower \
-        ember-cli
+RUN git clone \
+        https://github.com/roundcube-next/roundcube-shell.git \
+        /var/www/roundcube-shell.git/ && \
+    rm -rf /var/www/roundcube-shell.git/.git/
 
-WORKDIR /var/www/
-RUN git clone https://github.com/roundcube-next/roundcube-shell.git roundcube-shell.git
-RUN git clone https://github.com/roundcube-next/roundcube-mail.git roundcube-mail.git
-RUN git clone https://github.com/roundcube-next/roundcube-notifications.git roundcube-notifications.git
+RUN git clone \
+        https://github.com/roundcube-next/roundcube-mail.git \
+        /var/www/roundcube-mail.git/ && \
+    rm -rf /var/www/roundcube-mail.git/.git/
+
+RUN git clone \
+        https://github.com/roundcube-next/roundcube-notifications.git \
+        /var/www/roundcube-notifications.git/ && \
+    rm -rf /var/www/roundcube-notifications.git/.git/
 
 WORKDIR /var/www/roundcube-mail.git/
+#RUN npm install && \
+#    rm -rf /root/.npm/ && \
+#    npm link
 RUN npm link
 
 WORKDIR /var/www/roundcube-notifications.git/
+#RUN npm install && \
+#    rm -rf /root/.npm/ && \
+#    npm link
 RUN npm link
 
 WORKDIR /var/www/roundcube-shell.git/
@@ -37,8 +43,13 @@ RUN sed -r -i \
     -e '/roundcube-notifications/d' \
     package.json
 
-RUN npm install
+RUN npm install && \
+    rm -rf /root/.npm/
+
 RUN bower --allow-root install
+
+ENV NODE_PATH /usr/lib/node_modules:/var/www/roundcube-shell.git/node_modules
+ENV NODE_ENV production
 
 # These fail, see https://git.kolab.org/T858
 #RUN ember build --environment production
