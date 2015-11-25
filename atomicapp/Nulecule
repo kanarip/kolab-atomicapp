@@ -64,6 +64,10 @@
             "source": "docker://kolab/roundcubemail-atomicapp"
         },
         {
+            "name": "kolab-roundcube-next",
+            "source": "docker://kolab/roundcube-next-atomicapp"
+        },
+        {
             "name": "kolab-syncroton",
             "source": "docker://kolab/syncroton-atomicapp"
         },
