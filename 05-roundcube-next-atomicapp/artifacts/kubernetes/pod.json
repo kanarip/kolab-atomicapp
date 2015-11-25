@@ -1,0 +1,26 @@
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-roundcube-next",
+        "labels": {
+            "name": "kolab-roundcube-next"
+        }
+    },
+    "spec": {
+        "containers": [
+            {
+                "name": "kolab-roundcube-next",
+                "image": "$image",
+                "ports": [
+                    {
+                        "containerPort": 80
+                    },
+                    {
+                        "containerPort": 443
+                    }
+                ]
+            }
+        ]
+    }
+}

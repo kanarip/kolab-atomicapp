@@ -1,0 +1,5 @@
+docker run -d \
+    --name kolab-roundcube-next \
+    -p 80:80 \
+    -p 443:443 \
+    $image

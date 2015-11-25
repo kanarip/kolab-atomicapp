@@ -1,0 +1,28 @@
+{
+    "kind": "Service",
+    "apiVersion": "v1",
+    "metadata": {
+        "name": "kolab-roundcube-next",
+        "labels": {
+            "name": "kolab-roundcube-next"
+        }
+    },
+    "spec": {
+        "ports": [
+            {
+                "name": "http",
+                "port": 80,
+                "targetPort": 80
+            },
+            {
+                "name": "https",
+                "port": 443,
+                "targetPort": 443
+            }
+        ],
+        "selector": {
+            "name": "kolab-roundcube-next"
+        },
+        "type": "LoadBalancer"
+    }
+}

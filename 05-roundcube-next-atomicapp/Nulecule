@@ -1,0 +1,41 @@
+{
+    "specversion": "0.0.2",
+    "id": "kolab-roundcube-next",
+    "metadata": {
+        "name": "Kolab Web Client Interface",
+        "appversion": "14.0",
+        "description": "Web Client Interface"
+    },
+    "graph": [
+        {
+            "name": "kolab-roundcube-next",
+            "params": [
+                {
+                    "name": "image",
+                    "description": "Image to use",
+                    "default": "kolab/roundcube-next"
+                }
+            ],
+            "artifacts": {
+                "docker": [
+                    "file://artifacts/docker/run-pod"
+                ],
+                "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
+                ],
+                "openshift": [
+                    {
+                        "inherit": [
+                            "kubernetes"
+                        ]
+                    }
+                ]
+            }
+        },
+        {
+            "name": "roundcube-next-jmap-proxy",
+            "source": "docker://kolab/jmap-proxy-atomicapp"
+        }
+    ]
+}
