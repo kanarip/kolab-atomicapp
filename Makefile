@@ -48,7 +48,8 @@ run: clean all
 			-e 's/^db_name = None/db_name = kolab/g' \
 			-e 's/^db_pass = None/db_pass = welcome123/g' \
 			answers.conf.sample | sudo tee answers.conf && \
-		sudo atomicapp --verbose run -a /var/lib/atomicapp/kolab-atomicapp/answers.conf kolab/atomicapp
+		sudo atomicapp --verbose run -a /var/lib/atomicapp/kolab-atomicapp/answers.conf kolab/atomicapp || \
+		sudo atomicapp --verbose -a /var/lib/atomicapp/kolab-atomicapp/answers.conf run kolab/atomicapp
 
 clean:
 	for replicationcontroller in $$(kubectl get --no-headers=true replicationcontrollers | awk '{print $$1}' | grep -v kubernetes); do \
