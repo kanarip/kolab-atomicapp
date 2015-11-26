@@ -1,15 +1,36 @@
-FROM kolab/base-nodejs:latest
+#FROM kolab/base-nodejs:latest
+FROM kolab/base:latest
 
 MAINTAINER Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
+
+ENV NODE_VERSION=0.12.8
+
+RUN yum -y install \
+        gcc-c++ \
+        git \
+        make \
+        wget && \
+    yum clean all
+
+RUN cd /tmp && \
+    wget http://nodejs.org/dist/v${NODE_VERSION}/node-v${NODE_VERSION}.tar.gz && \
+    tar zxvf node-v${NODE_VERSION}.tar.gz && \
+    rm -f node-v${NODE_VERSION}.tar.gz && \
+    cd node-v${NODE_VERSION}/ && \
+    ./configure --prefix=/usr && \
+    CXX="g++ -Wno-unused-local-typedefs" make && \
+    CXX="g++ -Wno-unused-local-typedefs" make install && \
+    cd /tmp && \
+    rm -rf /tmp/node-v* && \
+    npm config set registry http://registry.npmjs.org/ && \
+    npm install -g bower ember-cli npm && \
+    rm -rf /root/.npm/ && \
+    printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
 RUN yum -y install \
         ruby-devel \
         rubygem-bundler && \
     yum clean all
-
-RUN npm update -g \
-        ember-cli && \
-    rm -rf /root/.npm/
 
 RUN git clone \
         https://github.com/roundcube-next/roundcube-shell.git \
@@ -57,7 +78,7 @@ ENV NODE_PATH /usr/lib/node_modules:/var/www/roundcube-shell.git/node_modules
 ENV NODE_ENV production
 
 # These fail, see https://git.kolab.org/T858
-#RUN ember build --environment production
+RUN ember build --environment production
 #RUN ember build
 
 ADD /entrypoint.sh /entrypoint.sh
