@@ -2,6 +2,11 @@ FROM kolab/base-nodejs:latest
 
 MAINTAINER Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
 
+RUN yum -y install \
+        ruby-devel \
+        rubygem-bundler && \
+    yum clean all
+
 RUN npm update -g \
         ember-cli && \
     rm -rf /root/.npm/
