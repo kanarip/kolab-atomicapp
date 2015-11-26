@@ -16,6 +16,11 @@
                     "default": "kolab/imapf-ext"
                 },
                 {
+                    "name": "domain",
+                    "description": "Domain Name Space",
+                    "default": "docker.container"
+                },
+                {
                     "name": "cyrus_admin_password",
                     "description": "Cyrus Administrator Password"
                 },
