@@ -2,62 +2,37 @@ FROM kolab/base-nodejs:latest
 
 MAINTAINER Jeroen van Meeuwen (Kolab Systems) <vanmeeuwen@kolabsys.com>
 
+#ENV GITHUB_ACCOUNT=kanarip
+#ENV GIT_BRANCH=dev/ember-build-fails
+
 RUN yum -y install \
         ruby-devel \
         rubygem-bundler && \
     yum clean all
 
-RUN npm update -g \
+RUN npm install -g \
         ember-cli && \
     rm -rf /root/.npm/
 
 RUN git clone \
-        https://github.com/roundcube-next/roundcube-shell.git \
+        -b ${GIT_BRANCH:-master} \
+        https://github.com/${GITHUB_ACCOUNT:-roundcube-next}/roundcube-shell.git \
         /var/www/roundcube-shell.git/ && \
     rm -rf /var/www/roundcube-shell.git/.git/
 
-RUN git clone \
-        https://github.com/roundcube-next/roundcube-mail.git \
-        /var/www/roundcube-mail.git/ && \
-    rm -rf /var/www/roundcube-mail.git/.git/
-
-RUN git clone \
-        https://github.com/roundcube-next/roundcube-notifications.git \
-        /var/www/roundcube-notifications.git/ && \
-    rm -rf /var/www/roundcube-notifications.git/.git/
-
-WORKDIR /var/www/roundcube-mail.git/
-#RUN npm install && \
-#    rm -rf /root/.npm/ && \
-#    npm link
-RUN npm link
-
-WORKDIR /var/www/roundcube-notifications.git/
-#RUN npm install && \
-#    rm -rf /root/.npm/ && \
-#    npm link
-RUN npm link
-
 WORKDIR /var/www/roundcube-shell.git/
-RUN npm link roundcube-mail
-RUN npm link roundcube-notifications
-RUN bundle
-RUN sed -r -i \
-    -e 's/"ember-try":(.*),$/"ember-try":\1/g' \
-    -e '/roundcube-mail/d' \
-    -e '/roundcube-notifications/d' \
-    package.json
 
 RUN npm install && \
     rm -rf /root/.npm/
 
 RUN bower --allow-root install
 
-ENV NODE_PATH /usr/lib/node_modules:/var/www/roundcube-shell.git/node_modules
-ENV NODE_ENV production
+## These fail, see https://git.kolab.org/T858
+#RUN sed -i \
+#    -e '/ES6 only/,+19d' \
+#    node_modules/jscs/lib/config/configuration.js
 
-# These fail, see https://git.kolab.org/T858
-#RUN ember build --environment production
+RUN ember build --environment production
 #RUN ember build
 
 ADD /entrypoint.sh /entrypoint.sh
