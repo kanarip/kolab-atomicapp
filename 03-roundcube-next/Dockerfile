@@ -23,18 +23,18 @@ RUN npm install --verbose && \
 
 RUN bower --allow-root install
 
-## These fail, see https://git.kolab.org/T858
-#RUN sed -i \
-#    -e '/ES6 only/,+19d' \
-#    node_modules/jscs/lib/config/configuration.js
+# These fail, see https://git.kolab.org/T858
+RUN sed -i \
+    -e '/ES6 only/,+19d' \
+    node_modules/jscs/lib/config/configuration.js
 
 RUN ember build --environment production
-#RUN ember build
 
 ADD /entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
 CMD [ \
         "ember", \
-        "server" \
+        "server", \
+        "--live-reload=false" \
     ]
