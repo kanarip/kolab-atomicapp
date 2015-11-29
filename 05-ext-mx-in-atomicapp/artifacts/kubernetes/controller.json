@@ -22,11 +22,12 @@
                 "containers": [
                     {
                         "name": "kolab-ext-mx-in",
-                        "image": "kolab/guam",
+                        "image": "$image",
                         "ports": [
                             {
                                 "name": "smtp",
-                                "containerPort": 25
+                                "containerPort": 25,
+                                "nodePort": 25
                             }
                         ]
                     }
