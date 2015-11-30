@@ -31,6 +31,7 @@
                     "file://artifacts/docker/run-pod"
                 ],
                 "kubernetes": [
+                    "file://artifacts/kubernetes/pod.json",
                     "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [

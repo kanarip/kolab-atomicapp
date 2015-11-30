@@ -18,6 +18,20 @@
                 {
                     "name": "kolab_service_password",
                     "description": "Kolab Service Password"
+                },
+                {
+                    "name": "kolab_syncroton_database_name",
+                    "description": "Database name",
+                    "default": "syncroton"
+                },
+                {
+                    "name": "kolab_syncroton_database_password",
+                    "description": "Database password"
+                },
+                {
+                    "name": "kolab_syncroton_database_username",
+                    "description": "Database user",
+                    "default": "syncroton"
                 }
             ],
             "artifacts": {
@@ -25,8 +39,8 @@
                     "file://artifacts/docker/run-pod"
                 ],
                 "kubernetes": [
-                    "file://artifacts/kubernetes/service.json",
-                    "file://artifacts/kubernetes/controller.json"
+                    "file://artifacts/kubernetes/pod.json",
+                    "file://artifacts/kubernetes/service.json"
                 ],
                 "openshift": [
                     {

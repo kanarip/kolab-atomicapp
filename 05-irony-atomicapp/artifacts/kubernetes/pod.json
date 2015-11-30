@@ -2,15 +2,15 @@
     "kind": "Pod",
     "apiVersion": "v1",
     "metadata": {
-        "name": "kolab-roundcube-next",
+        "name": "kolab-irony",
         "labels": {
-            "name": "kolab-roundcube-next"
+            "name": "kolab-irony"
         }
     },
     "spec": {
         "containers": [
             {
-                "name": "kolab-roundcube-next",
+                "name": "kolab-irony",
                 "image": "$image",
                 "ports": [
                     {
@@ -30,16 +30,16 @@
                         "value": "$kolab_service_password"
                     },
                     {
-                        "name": "KOLAB_ROUNDCUBE-NEXT_DATABASE_NAME",
-                        "value": "$kolab_roundcube-next_database_name"
+                        "name": "KOLAB_IRONY_DATABASE_NAME",
+                        "value": "$kolab_irony_database_name"
                     },
                     {
-                        "name": "KOLAB_ROUNDCUBE-NEXT_DATABASE_PASSWORD",
-                        "value": "$kolab_roundcube-next_database_password"
+                        "name": "KOLAB_IRONY_DATABASE_PASSWORD",
+                        "value": "$kolab_irony_database_password"
                     },
                     {
-                        "name": "KOLAB_ROUNDCUBE-NEXT_DATABASE_USERNAME",
-                        "value": "$kolab_roundcube-next_database_username"
+                        "name": "KOLAB_IRONY_DATABASE_USERNAME",
+                        "value": "$kolab_irony_database_username"
                     }
                 ]
             }
