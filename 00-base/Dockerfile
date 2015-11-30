@@ -34,6 +34,7 @@ RUN yum -y install yum-plugin-priorities && \
 # Install some debugging utilities.
 RUN yum -y install \
         bind-utils \
+        cyrus-imapd \
         lsof \
         net-tools \
         nmap-ncat \
