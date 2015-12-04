@@ -10,6 +10,10 @@ RUN yum -y install \
         rubygem-bundler && \
     yum clean all
 
+RUN npm install --verbose -g \
+        ember-cli && \
+    rm -rf /root/.npm/
+
 RUN git clone \
         -b ${GIT_BRANCH:-master} \
         https://github.com/${GITHUB_ACCOUNT:-roundcube-next}/roundcube-shell.git \
