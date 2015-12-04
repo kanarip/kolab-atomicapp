@@ -43,6 +43,5 @@ RUN npm update --verbose -g \
         node-gyp \
         npm && \
     npm install --verbose -g \
-        bower \
-        ember-cli && \
+        bower && \
     rm -rf /root/.npm/
