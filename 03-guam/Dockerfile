@@ -5,7 +5,6 @@ ENV GUAM_BRANCH master
 RUN yum -y install \
         erlang-erts \
         erlang-rebar \
-        git \
         make && \
     yum clean all
 
