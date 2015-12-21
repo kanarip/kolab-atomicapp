@@ -38,7 +38,7 @@ pull:
 
 push:
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
-		docker push docker.io/kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g'):$(BRANCH) ; \
+		docker push --force docker.io/kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g'):$(BRANCH) ; \
 	done
 
 run: clean all
