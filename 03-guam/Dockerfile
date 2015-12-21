@@ -6,7 +6,6 @@ RUN yum -y install \
         erlang-erts \
         erlang-rebar \
         git \
-        guam \
         make && \
     yum clean all
 
