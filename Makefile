@@ -1,4 +1,5 @@
 BRANCH	:= $(shell git rev-parse --abbrev-ref HEAD | sed -e 's/master/latest/g')
+NOCACHE	:= $(shell test 0$(NOCACHE) -eq 0 || echo "--no-cache")
 
 all: docs
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
@@ -95,6 +96,6 @@ restart:
 	done
 
 %:
-	docker build -t kolab/$@:$(BRANCH) *-$@
+	docker build $(NOCACHE) -t kolab/$@:$(BRANCH) *-$@
 
 .PHONY: all docs push
