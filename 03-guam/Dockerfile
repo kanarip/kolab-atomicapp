@@ -3,7 +3,10 @@ FROM kolab/base:latest
 ENV GUAM_BRANCH master
 
 RUN yum -y install \
+        erlang-eimap \
         erlang-erts \
+        erlang-goldrush \
+        erlang-lager \
         erlang-rebar \
         make && \
     yum clean all
