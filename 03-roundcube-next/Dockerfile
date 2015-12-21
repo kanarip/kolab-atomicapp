@@ -32,7 +32,8 @@ RUN sed -i \
     -e '/ES6 only/,+19d' \
     node_modules/jscs/lib/config/configuration.js
 
-RUN ember build --environment production
+# This fails without setting JMAP_HOST environment variable
+#RUN ember build --environment production
 
 ADD /entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
