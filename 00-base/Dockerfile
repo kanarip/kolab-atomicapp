@@ -35,6 +35,7 @@ RUN yum -y install yum-plugin-priorities && \
 RUN yum -y install \
         bind-utils \
         cyrus-imapd \
+        cyrus-sasl-plain \
         lsof \
         net-tools \
         nmap-ncat \
