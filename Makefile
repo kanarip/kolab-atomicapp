@@ -1,14 +1,16 @@
+BRANCH	:= $(shell git rev-parse --abbrev-ref HEAD | sed -e 's/master/latest/g')
+
 all: docs
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
 		echo "== $$image ==" ; \
 		docker build \
-			-t kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g') \
+			-t kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g'):$(BRANCH) \
 			$$image/. ; \
 	done
 
 list:
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
-		echo "kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g')" ; \
+		echo "kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g'):$(BRANCH)" ; \
 	done
 
 docs:
@@ -28,17 +30,17 @@ pull:
 	docker pull microwebapps/haproxy-frontend-atomicapp:latest && \
 		docker tag -f docker.io/microwebapps/haproxy-frontend-atomicapp:latest microwebapps/haproxy-frontend-atomicapp:latest
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
-		docker pull kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') && \
-			docker tag -f docker.io/kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') || : ; \
+		docker pull kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g'):$(BRANCH) && \
+			docker tag -f docker.io/kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g'):$(BRANCH) kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g'):$(BRANCH) || : ; \
 	done
 
 push:
 	for image in $$(find . -mindepth 2 -maxdepth 2 -type f -name "Dockerfile" -exec dirname {} \; | sort); do \
-		docker push kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g') ; \
+		docker push kolab/$$(basename $${image} | sed -r -e 's/[0-9]+-//g')$(BRANCH) ; \
 	done
 
 run: clean all
-	sudo atomicapp --verbose install --destination /var/lib/atomicapp/kolab-atomicapp/ kolab/atomicapp && \
+	sudo atomicapp --verbose install --destination /var/lib/atomicapp/kolab-atomicapp/ kolab/atomicapp:$(BRANCH) && \
 		cd /var/lib/atomicapp/kolab-atomicapp/ && \
 		sed \
 			-e 's/_password = None/_password = welcome123/g' \
@@ -48,8 +50,8 @@ run: clean all
 			-e 's/^db_name = None/db_name = kolab/g' \
 			-e 's/^db_pass = None/db_pass = welcome123/g' \
 			answers.conf.sample | sudo tee answers.conf && \
-		sudo atomicapp --verbose run -a /var/lib/atomicapp/kolab-atomicapp/answers.conf kolab/atomicapp || \
-		sudo atomicapp --verbose -a /var/lib/atomicapp/kolab-atomicapp/answers.conf run kolab/atomicapp
+		sudo atomicapp --verbose run -a /var/lib/atomicapp/kolab-atomicapp/answers.conf kolab/atomicapp:$(BRANCH) || \
+		sudo atomicapp --verbose -a /var/lib/atomicapp/kolab-atomicapp/answers.conf run kolab/atomicapp:$(BRANCH)
 
 clean:
 	for replicationcontroller in $$(kubectl get --no-headers=true replicationcontrollers | awk '{print $$1}' | grep -v kubernetes); do \
@@ -91,6 +93,6 @@ restart:
 	done
 
 %:
-	docker build -t kolab/$@ *-$@
+	docker build -t kolab/$@:$(BRANCH) *-$@
 
 .PHONY: all docs push
