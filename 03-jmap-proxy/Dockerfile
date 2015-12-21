@@ -5,7 +5,6 @@ RUN yum -y install epel-release && \
     yum -y install \
         @fedora-packager \
         gcc \
-        git \
         libuuid-devel \
         net-tools \
         nginx \

@@ -29,7 +29,6 @@ ENV NODE_VERSION=0.12.8
 #    printf '\n# Node.js\nexport PATH="node_modules/.bin:$PATH"' >> /root/.bashrc
 
 RUN yum -y install \
-        git \
         libjpeg-turbo-utils \
         libpng-devel \
         nodejs \
