@@ -1,7 +1,6 @@
 FROM kolab/base:latest
 
 ENV GUAM_BRANCH master
-ENV GUAM_VERSION 0.5
 
 RUN yum -y install \
         erlang-erts \
@@ -21,6 +20,7 @@ WORKDIR /root/guam.git/
 RUN timeout 60s rebar get-deps
 RUN timeout 60s rebar compile
 RUN timeout 60s rebar eunit
+RUN mkdir -p deps
 
 WORKDIR /root/guam.git/rel/
 
