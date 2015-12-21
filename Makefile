@@ -7,7 +7,7 @@ all: docs
 		docker build \
 			-t kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g'):$(BRANCH) \
 			$$image/. ; \
-		docker tag kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g'):$(BRANCH) \
+		docker tag -f kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g'):$(BRANCH) \
 			docker.io/kolab/$$(basename $$image | sed -r -e 's/[0-9]+-//g'):$(BRANCH) ; \
 	done
 
@@ -97,5 +97,6 @@ restart:
 
 %:
 	docker build $(NOCACHE) -t kolab/$@:$(BRANCH) *-$@
+	docker tag -f kolab/$@:$(BRANCH) docker.io/kolab/$@:$(BRANCH)
 
 .PHONY: all docs push
