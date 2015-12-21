@@ -36,6 +36,7 @@ RUN yum -y install \
         bind-utils \
         cyrus-imapd \
         cyrus-sasl-plain \
+        git \
         lsof \
         net-tools \
         nmap-ncat \
