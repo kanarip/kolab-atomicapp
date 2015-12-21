@@ -4,14 +4,7 @@
             {
                 imap_servers, [
                     {
-                        imap, [
-                            { host, "192.168.56.101" },
-                            { port, 143 },
-                            { tls, starttls }
-                        ]
-                    },
-                    {
-                        imaps, [
+                        default, [
                             { host, "192.168.56.101" },
                             { port, 993 },
                             { tls, true }
@@ -24,7 +17,7 @@
                     {
                         imap, [
                             { port, 143 },
-                            { imap_server, imap },
+                            { imap_server, default },
                             {
                                 rules, [
                                     { filter_groupware, [] }
@@ -41,7 +34,7 @@
                         imaps, [
                             { port, 993 },
                             { implicit_tls, true },
-                            { imap_server, imaps },
+                            { imap_server, default },
                             {
                                 rules, [
                                     { filter_groupware, [] }
