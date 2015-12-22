@@ -16,4 +16,4 @@ sed -r -i \
     -e "s/host, \"127\.0\.0\.1\"/host, \"${KOLAB_IMAPF_EXT_SERVICE_HOST}\"/g" \
     /etc/guam/sys.config
 
-"$@"
+$@
