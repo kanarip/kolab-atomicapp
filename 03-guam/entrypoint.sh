@@ -14,6 +14,8 @@ fi
 
 sed -r -i \
     -e "s/host, \"127\.0\.0\.1\"/host, \"${KOLAB_IMAPF_EXT_SERVICE_HOST}\"/g" \
+    -e "s/port, 9143/port, 143/g" \
+    -e "s/port, 9993/port, 993/g" \
     /etc/guam/sys.config
 
 $@
