@@ -13,9 +13,7 @@ if [ ! -f "/etc/pki/tls/private/localhost.pem" ]; then
 fi
 
 sed -r -i \
-    -e "s/host, \"192\.168\.56\.101\"/host, \"${KOLAB_IMAPF_EXT_SERVICE_HOST}\"/g" \
-    -e "s/tls, false/tls, true/g" \
-    -e "s|/etc/ssl/sample.pem|/etc/pki/tls/private/localhost.pem|g" \
+    -e "s/host, \"127\.0\.0\.1\"/host, \"${KOLAB_IMAPF_EXT_SERVICE_HOST}\"/g" \
     /etc/guam/sys.config
 
 exec "$@"
