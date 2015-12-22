@@ -32,8 +32,11 @@ WORKDIR /root/guam.git/
 ADD /entrypoint.sh /entrypoint.sh
 RUN chmod a+x /entrypoint.sh
 
-RUN rm -rf \
-        /root/guam.git/rel/kolab_guam/releases/*/sys.config && \
+RUN mkdir -p \
+        /etc/guam/ && \
+    mv -v \
+        $(ls -1d /root/guam.git/rel/kolab_guam/releases/*/)/sys.config \
+        /etc/guam/sys.config && \
     ln -s \
         /etc/guam/sys.config \
         $(ls -1d /root/guam.git/rel/kolab_guam/releases/*/)/.
