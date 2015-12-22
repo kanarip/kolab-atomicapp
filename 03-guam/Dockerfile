@@ -38,8 +38,6 @@ RUN rm -rf \
         /etc/guam/sys.config \
         $(ls -1d /root/guam.git/rel/kolab_guam/releases/*/)/.
 
-ADD /sys.config /etc/guam/sys.config
-
 EXPOSE 143 993
 
 CMD [ \
