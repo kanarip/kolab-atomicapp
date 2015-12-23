@@ -10,6 +10,12 @@ ADD http://obs.kolabsys.com/repositories/Kolab:/3.4/CentOS_7/Kolab:3.4.repo \
 ADD http://obs.kolabsys.com/repositories/Kolab:/3.4:/Updates/CentOS_7/Kolab:3.4:Updates.repo \
     /etc/yum.repos.d/Kolab:3.4:Updates.repo
 
+RUN echo "priority=60" >> /etc/yum.repos.d/Kolab:Development.repo
+
+RUN echo "priority=60" >> /etc/yum.repos.d/Kolab:3.4.repo
+
+RUN echo "priority=60" >> /etc/yum.repos.d/Kolab:3.4:Updates.repo
+
 RUN rpm --import https://ssl.kolabsys.com/community.asc
 
 ADD http://download.opensuse.org/repositories/openSUSE:Tools/CentOS_7/openSUSE:Tools.repo \
